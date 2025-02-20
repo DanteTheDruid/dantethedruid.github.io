@@ -11,7 +11,7 @@ function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          Your Name
+          Dante Morrello
         </motion.h1>
         <motion.h2
           className="text-3xl text-blue-400 mb-8"
@@ -19,7 +19,7 @@ function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          Your Title
+          Senior Software Engineer
         </motion.h2>
         <motion.p
           className="text-xl text-gray-300 max-w-2xl mx-auto"
@@ -27,7 +27,9 @@ function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
         >
-          A brief introduction about yourself and your expertise. Make it compelling and interesting!
+          Experienced software engineer with a proven track record in full-stack development, 
+          team leadership, and delivering enterprise-scale solutions for Fortune 500 companies.
+          Specialized in both low-code and full-code development with expertise in modern web technologies.
         </motion.p>
       </div>
     </section>

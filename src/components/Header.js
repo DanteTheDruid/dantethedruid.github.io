@@ -27,10 +27,10 @@ function Header() {
           className="text-xl font-bold"
           whileHover={{ scale: 1.1 }}
         >
-          Your Name
+          Dante Morrello
         </motion.div>
         <ul className="flex space-x-8">
-          {['About', 'Experience', 'Skills', 'Projects', 'Contact'].map((item) => (
+          {['About', 'Experience', 'Skills', 'Contact'].map((item) => (
             <motion.li
               key={item}
               whileHover={{ scale: 1.1 }}
