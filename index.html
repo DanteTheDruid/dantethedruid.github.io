@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html l    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iOCIgZmlsbD0iIzFlM2E4YSIvPgo8cGF0aCBkPSJNOCA4aDhWMTZIOHoiIGZpbGw9IiMxMGI5ODEiLz4KPHA+PC9wYXRoPiA8cGF0aCBkPSJNMTYgOGg4djhIMTZ6IiBmaWxsPSIjN2MzYWVkIi8+CjxwYXRoIGQ9Ik04IDE2aDh2OEg4eiIgZmlsbD0iI2ZiYmYyNCIvPgo8cGF0aCBkPSJNMTYgMTZoOHY4SDE2eiIgZmlsbD0iIzA1OTY2OSIvPgo8L3N2Zz4K">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#1e3a8a">
+    
+    <link rel="stylesheet" href="styles.css">="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TwitchIntegrationPlus - Interactive Terraria Streaming Experience</title>
+    <meta name="description" content="TwitchIntegrationPlus is a Terraria tModLoader mod that integrates with Twitch services to provide interactive streaming features with real-time viewer interaction and token rewards.">
+    <meta name="keywords" content="Terraria, Twitch, mod, streaming, interactive, tModLoader, gaming">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://dantethedruid.github.io/TwitchIntegrationPlusWebsite/">
+    <meta property="og:title" content="TwitchIntegrationPlus - Interactive Terraria Streaming Experience">
+    <meta property="og:description" content="Transform your Terraria streams with real-time viewer interaction, token rewards, and secure Twitch integration. 15+ commands, 20+ redemptions!">
+    <meta property="og:image" content="https://dantethedruid.github.io/TwitchIntegrationPlusWebsite/og-image.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://dantethedruid.github.io/TwitchIntegrationPlusWebsite/">
+    <meta property="twitter:title" content="TwitchIntegrationPlus - Interactive Terraria Streaming Experience">
+    <meta property="twitter:description" content="Transform your Terraria streams with real-time viewer interaction, token rewards, and secure Twitch integration. 15+ commands, 20+ redemptions!">
+    <meta property="twitter:image" content="https://dantethedruid.github.io/TwitchIntegrationPlusWebsite/og-image.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iOCIgZmlsbD0iIzFlM2E4YSIvPgo8cGF0aCBkPSJNOCA4aDhWMTZIOHoiIGZpbGw9IiMxMGI5ODEiLz4KPHA+PC9wYXRoPiA8cGF0aCBkPSJNMTYgOGg4djhIMTZ6IiBmaWxsPSIjN2MzYWVkIi8+CjxwYXRoIGQ9Ik08IDE2aDh2OEg4eiIgZmlsbD0iI2ZiYmYyNCIvPgo8cGF0aCBkPSJNMTYgMTZoOHY4SDE2eiIgZmlsbD0iIzA1OTY2OSIvPgo8L3N2Zz4K">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-gamepad"></i>
+                <span>TwitchIntegrationPlus</span>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#commands" class="nav-link">Commands</a>
+                <a href="#setup" class="nav-link">Setup</a>
+                <a href="#security" class="nav-link">Security</a>
+                <a href="#download" class="nav-link download-btn">Download</a>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fab fa-twitch"></i>
+                    <span>Terraria × Twitch Integration</span>
+                </div>
+                <h1 class="hero-title">TwitchIntegrationPlus</h1>
+                <p class="hero-subtitle">Interactive Terraria Streaming Experience</p>
+                <p class="hero-description">
+                    Transform your Terraria streams with real-time viewer interaction, token rewards, and secure Twitch integration. 
+                    Let your viewers control the game through chat commands and earn rewards for watching!
+                </p>
+                <div class="hero-buttons">
+                    <a href="#setup" class="btn btn-primary">
+                        <i class="fas fa-rocket"></i>
+                        Get Started
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">15+</span>
+                        <span class="stat-label">Chat Commands</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">20+</span>
+                        <span class="stat-label">Token Rewards</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Secure</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-card">
+                    <div class="card-header">
+                        <i class="fas fa-terminal"></i>
+                        <span>Live Chat Commands</span>
+                    </div>
+                    <div class="card-content">
+                        <div class="chat-example">
+                            <div class="chat-message viewer">
+                                <span class="username">GamerViewer123:</span>
+                                <span class="message">!health</span>
+                            </div>
+                            <div class="chat-message bot">
+                                <span class="username">TwitchBot:</span>
+                                <span class="message">@GamerViewer123 Player health: 450/500 (90%)</span>
+                            </div>
+                            <div class="chat-message viewer">
+                                <span class="username">StreamFan:</span>
+                                <span class="message">!redeem heal</span>
+                            </div>
+                            <div class="chat-message bot">
+                                <span class="username">TwitchBot:</span>
+                                <span class="message">@StreamFan Redeemed 'heal' for 50 tokens! 💚</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Powerful Features</h2>
+                <p>Everything you need for interactive Terraria streaming</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-plug"></i>
+                    </div>
+                    <h3>Simple Setup</h3>
+                    <p>No need to create Twitch applications - built-in OAuth makes setup a breeze</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Secure Token Storage</h3>
+                    <p>Encrypted tokens and streaming-safe configuration - never worry about exposing secrets</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>Real-time Chat</h3>
+                    <p>Live Twitch chat monitoring with instant command processing and responses</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-coins"></i>
+                    </div>
+                    <h3>Token Rewards</h3>
+                    <p>Virtual currency system that rewards viewers for watching and participating</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <h3>Interactive Commands</h3>
+                    <p>15+ viewer commands for checking stats, redeeming rewards, and affecting gameplay</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <h3>Admin Controls</h3>
+                    <p>Comprehensive streamer and moderator tools for managing the experience</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Commands Section -->
+    <section id="commands" class="commands">
+        <div class="container">
+            <div class="section-header">
+                <h2>Command Reference</h2>
+                <p>Complete guide to all available commands and their usage</p>
+            </div>
+            
+            <!-- Search and Filter -->
+            <div class="commands-controls">
+                <div class="search-container">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="command-search" placeholder="Search commands...">
+                </div>
+                <div class="filter-container">
+                    <button class="filter-btn active" data-category="all">All Commands</button>
+                    <button class="filter-btn" data-category="viewer">Viewer Commands</button>
+                    <button class="filter-btn" data-category="redemption">Token Redemptions</button>
+                    <button class="filter-btn" data-category="admin">Admin Commands</button>
+                </div>
+            </div>
+
+            <!-- Viewer Commands -->
+            <div class="command-section" data-category="viewer">
+                <h3><i class="fas fa-users"></i> Viewer Chat Commands</h3>
+                <div class="table-responsive">
+                    <table class="commands-table">
+                        <thead>
+                            <tr>
+                                <th>Command</th>
+                                <th>Description</th>
+                                <th>Example Response</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>!health</code></td>
+                                <td>Shows player's current health</td>
+                                <td><em>@viewer Player health: 450/500 (90%)</em></td>
+                            </tr>
+                            <tr>
+                                <td><code>!time</code></td>
+                                <td>Shows in-game time</td>
+                                <td><em>@viewer Current time: Day (75% complete)</em></td>
+                            </tr>
+                            <tr>
+                                <td><code>!players</code></td>
+                                <td>Lists active players</td>
+                                <td><em>@viewer 2 players online: Dante, Friend123</em></td>
+                            </tr>
+                            <tr>
+                                <td><code>!boss</code></td>
+                                <td>Shows active bosses</td>
+                                <td><em>@viewer Active bosses: Eye of Cthulhu</em></td>
+                            </tr>
+                            <tr>
+                                <td><code>!weather</code></td>
+                                <td>Shows weather conditions</td>
+                                <td><em>@viewer Current weather: Raining, Snow biome</em></td>
+                            </tr>
+                            <tr>
+                                <td><code>!tokens [username]</code></td>
+                                <td>Check token balance</td>
+                                <td><em>@viewer You have 150 tokens</em></td>
+                            </tr>
+                            <tr>
+                                <td><code>!leaderboard</code></td>
+                                <td>Top token holders</td>
+                                <td><em>Shows top 5 viewers with most tokens</em></td>
+                            </tr>
+                            <tr>
+                                <td><code>!watchtime</code></td>
+                                <td>Personal watch time</td>
+                                <td><em>@viewer You've watched for 2.5 hours</em></td>
+                            </tr>
+                            <tr>
+                                <td><code>!shop</code> / <code>!rewards</code></td>
+                                <td>View available redemptions</td>
+                                <td><em>Shows all redemption options with costs</em></td>
+                            </tr>
+                            <tr>
+                                <td><code>!redeem &lt;option&gt;</code> / <code>!r &lt;option&gt;</code></td>
+                                <td>Redeem tokens for effects</td>
+                                <td><em>@viewer Redeemed 'heal' for 50 tokens!</em></td>
+                            </tr>
+                            <tr>
+                                <td><code>!help</code> / <code>!commands</code></td>
+                                <td>Shows all commands</td>
+                                <td><em>Lists all available commands</em></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Token Redemptions -->
+            <div class="command-section" data-category="redemption">
+                <h3><i class="fas fa-coins"></i> Token Redemption System</h3>
+                
+                <div class="redemption-category">
+                    <h4>Player Effects</h4>
+                    <div class="table-responsive">
+                        <table class="commands-table">
+                            <thead>
+                                <tr>
+                                    <th>Command</th>
+                                    <th>Description</th>
+                                    <th>Cost</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>heal</code></td>
+                                    <td>Heal the player by 100 HP</td>
+                                    <td><span class="token-cost">50 tokens</span></td>
+                                </tr>
+                                <tr>
+                                    <td><code>buff</code></td>
+                                    <td>Get a random buff for 5 minutes</td>
+                                    <td><span class="token-cost">30 tokens</span></td>
+                                </tr>
+                                <tr>
+                                    <td><code>item</code></td>
+                                    <td>Spawn a random item</td>
+                                    <td><span class="token-cost">75 tokens</span></td>
+                                </tr>
+                                <tr>
+                                    <td><code>respawn</code></td>
+                                    <td>Respawn if the player is dead</td>
+                                    <td><span class="token-cost">40 tokens</span></td>
+                                </tr>
+                                <tr>
+                                    <td><code>biome</code></td>
+                                    <td>Get biome-specific buffs based on current location</td>
+                                    <td><span class="token-cost">120 tokens</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="redemption-category">
+                    <h4>Fun Effects</h4>
+                    <div class="table-responsive">
+                        <table class="commands-table">
+                            <thead>
+                                <tr>
+                                    <th>Command</th>
+                                    <th>Description</th>
+                                    <th>Cost</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>rain</code></td>
+                                    <td>Toggle rain on/off</td>
+                                    <td><span class="token-cost">25 tokens</span></td>
+                                </tr>
+                                <tr>
+                                    <td><code>daynight</code></td>
+                                    <td>Toggle between day and night</td>
+                                    <td><span class="token-cost">35 tokens</span></td>
+                                </tr>
+                                <tr>
+                                    <td><code>slime</code></td>
+                                    <td>Spawn a slime party</td>
+                                    <td><span class="token-cost">20 tokens</span></td>
+                                </tr>
+                                <tr>
+                                    <td><code>windy</code></td>
+                                    <td>Make it very windy</td>
+                                    <td><span class="token-cost">40 tokens</span></td>
+                                </tr>
+                                <tr>
+                                    <td><code>bunnies</code></td>
+                                    <td>Spawn a horde of bunnies</td>
+                                    <td><span class="token-cost">30 tokens</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="redemption-category">
+                    <h4>Event Effects</h4>
+                    <div class="table-responsive">
+                        <table class="commands-table">
+                            <thead>
+                                <tr>
+                                    <th>Command</th>
+                                    <th>Description</th>
+                                    <th>Cost</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>slimerain</code></td>
+                                    <td>Trigger the Slime Rain event</td>
+                                    <td><span class="token-cost">150 tokens</span></td>
+                                </tr>
+                                <tr>
+                                    <td><code>bloodmoon</code></td>
+                                    <td>Trigger a Blood Moon</td>
+                                    <td><span class="token-cost">200 tokens</span></td>
+                                </tr>
+                                <tr>
+                                    <td><code>eclipse</code></td>
+                                    <td>Trigger a Solar Eclipse</td>
+                                    <td><span class="token-cost">300 tokens</span></td>
+                                </tr>
+                                <tr>
+                                    <td><code>sandstorm</code></td>
+                                    <td>Trigger a sandstorm</td>
+                                    <td><span class="token-cost">100 tokens</span></td>
+                                </tr>
+                                <tr>
+                                    <td><code>chaos</code></td>
+                                    <td>Spawn random creatures everywhere</td>
+                                    <td><span class="token-cost">180 tokens</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="redemption-category">
+                    <h4>Advanced Effects</h4>
+                    <div class="table-responsive">
+                        <table class="commands-table">
+                            <thead>
+                                <tr>
+                                    <th>Command</th>
+                                    <th>Description</th>
+                                    <th>Cost</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>boss</code></td>
+                                    <td>Spawn a random boss</td>
+                                    <td><span class="token-cost">500 tokens</span></td>
+                                </tr>
+                                <tr>
+                                    <td><code>invasion</code></td>
+                                    <td>Trigger a random invasion</td>
+                                    <td><span class="token-cost">400 tokens</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Admin Commands -->
+            <div class="command-section" data-category="admin">
+                <h3><i class="fas fa-crown"></i> Admin Commands</h3>
+                
+                <div class="admin-category">
+                    <h4>Twitch Chat Admin Commands</h4>
+                    <div class="table-responsive">
+                        <table class="commands-table">
+                            <thead>
+                                <tr>
+                                    <th>Command</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>!admin give &lt;user/all&gt; &lt;amount&gt;</code></td>
+                                    <td>Give tokens to specific viewer or all viewers</td>
+                                </tr>
+                                <tr>
+                                    <td><code>!admin spawn &lt;entity&gt; [count]</code></td>
+                                    <td>Spawn creatures in the game</td>
+                                </tr>
+                                <tr>
+                                    <td><code>!admin weather &lt;type&gt;</code></td>
+                                    <td>Control weather conditions</td>
+                                </tr>
+                                <tr>
+                                    <td><code>!admin time &lt;day/night&gt;</code></td>
+                                    <td>Control day/night cycle</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="admin-category">
+                    <h4>In-Game Admin Commands (Streamer Only)</h4>
+                    <div class="table-responsive">
+                        <table class="commands-table">
+                            <thead>
+                                <tr>
+                                    <th>Command</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>/twitch help</code></td>
+                                    <td>Show all available commands</td>
+                                </tr>
+                                <tr>
+                                    <td><code>/twitch auth</code></td>
+                                    <td>Connect your Twitch account</td>
+                                </tr>
+                                <tr>
+                                    <td><code>/twitch connect</code></td>
+                                    <td>Connect to Twitch chat</td>
+                                </tr>
+                                <tr>
+                                    <td><code>/twitch disconnect</code></td>
+                                    <td>Disconnect from Twitch</td>
+                                </tr>
+                                <tr>
+                                    <td><code>/twitch status</code></td>
+                                    <td>Show current connection status</td>
+                                </tr>
+                                <tr>
+                                    <td><code>/twitch tokens [username]</code></td>
+                                    <td>Show token leaderboard or check specific viewer</td>
+                                </tr>
+                                <tr>
+                                    <td><code>/twitch give &lt;username&gt; &lt;amount&gt;</code></td>
+                                    <td>Give tokens to a viewer</td>
+                                </tr>
+                                <tr>
+                                    <td><code>/twitch take &lt;username&gt; &lt;amount&gt;</code></td>
+                                    <td>Remove tokens from a viewer</td>
+                                </tr>
+                                <tr>
+                                    <td><code>/twitch set &lt;username&gt; &lt;amount&gt;</code></td>
+                                    <td>Set a viewer's token balance</td>
+                                </tr>
+                                <tr>
+                                    <td><code>/twitch autotokens</code></td>
+                                    <td>Show automatic token reward status</td>
+                                </tr>
+                                <tr>
+                                    <td><code>/twitch reward</code></td>
+                                    <td>Manually trigger token rewards for all viewers</td>
+                                </tr>
+                                <tr>
+                                    <td><code>/twitch blacklist &lt;add/remove/list&gt; &lt;username&gt;</code></td>
+                                    <td>Manage viewer blacklist</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Setup Guide Section -->
+    <section id="setup" class="setup">
+        <div class="container">
+            <div class="section-header">
+                <h2>Setup Guide</h2>
+                <p>Get TwitchIntegrationPlus running in just 3 simple steps</p>
+            </div>
+            
+            <div class="setup-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Install & Configure</h3>
+                        <p>Enable the mod in tModLoader and set your channel name in Mod Configuration</p>
+                        <div class="step-details">
+                            <ul>
+                                <li>Download and install the mod from the mod browser (Steam Workshop coming soon)</li>
+                                <li>Launch Terraria with tModLoader</li>
+                                <li>Go to Mods → Mod Configuration → TwitchIntegrationPlus</li>
+                                <li>Set your Twitch channel name</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Authorize</h3>
+                        <p>Use the <code>/twitch auth</code> command in-game to connect your Twitch account</p>
+                        <div class="step-details">
+                            <ul>
+                                <li>Open the in-game chat</li>
+                                <li>Type <code>/twitch auth</code></li>
+                                <li>Follow the OAuth authorization flow</li>
+                                <li>Your tokens will be securely encrypted and stored</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Connect</h3>
+                        <p>Use <code>/twitch connect</code> to join your Twitch chat and start streaming!</p>
+                        <div class="step-details">
+                            <ul>
+                                <li>Type <code>/twitch connect</code> in-game</li>
+                                <li>The mod will connect to your Twitch chat</li>
+                                <li>Viewers can now use commands in your chat</li>
+                                <li>Check status with <code>/twitch status</code></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="permissions-info">
+                <h3><i class="fas fa-key"></i> Required Permissions</h3>
+                <p>The mod requests the following OAuth scopes for full functionality:</p>
+                <div class="permissions-grid">
+                    <div class="permission">
+                        <code>chat:read</code>
+                        <span>Read chat messages</span>
+                    </div>
+                    <div class="permission">
+                        <code>chat:edit</code>
+                        <span>Send chat messages</span>
+                    </div>
+                    <div class="permission">
+                        <code>channel:read:subscriptions</code>
+                        <span>Monitor subscriptions</span>
+                    </div>
+                    <div class="permission">
+                        <code>bits:read</code>
+                        <span>Monitor bit donations</span>
+                    </div>
+                    <div class="permission">
+                        <code>channel:read:redemptions</code>
+                        <span>Monitor channel point redemptions</span>
+                    </div>
+                    <div class="permission">
+                        <code>moderator:read:followers</code>
+                        <span>Monitor new followers</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Security Section -->
+    <section id="security" class="security">
+        <div class="container">
+            <div class="section-header">
+                <h2>Security Features</h2>
+                <p>Built with security and streaming safety in mind</p>
+            </div>
+            
+            <div class="security-features">
+                <div class="security-card">
+                    <div class="security-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3>Encrypted Token Storage</h3>
+                    <p>OAuth tokens are encrypted and stored separately from configuration files, ensuring maximum security.</p>
+                </div>
+                
+                <div class="security-card">
+                    <div class="security-icon">
+                        <i class="fas fa-eye-slash"></i>
+                    </div>
+                    <h3>UI Hidden</h3>
+                    <p>OAuth tokens never appear in the configuration interface, preventing accidental exposure.</p>
+                </div>
+                
+                <div class="security-card">
+                    <div class="security-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Streaming Safe</h3>
+                    <p>No risk of accidentally showing tokens during streams - everything is hidden by design.</p>
+                </div>
+                
+                <div class="security-card">
+                    <div class="security-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3>Secure by Default</h3>
+                    <p>Built-in Client ID is safe for public distribution - no need to create your own Twitch app.</p>
+                </div>
+                
+                <div class="security-card">
+                    <div class="security-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h3>Token Validation</h3>
+                    <p>Automatic validation and refresh handling ensures uninterrupted streaming experience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Info Section -->
+    <section class="technical-info">
+        <div class="container">
+            <div class="section-header">
+                <h2>Technical Information</h2>
+            </div>
+            
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <strong>Platform:</strong>
+                    <span>Terraria tModLoader</span>
+                </div>
+                <div class="tech-item">
+                    <strong>Language:</strong>
+                    <span>C#</span>
+                </div>
+                <div class="tech-item">
+                    <strong>Dependencies:</strong>
+                    <span>TwitchLib.Client (3.5.3)</span>
+                </div>
+                <div class="tech-item">
+                    <strong>File Size:</strong>
+                    <span>Lightweight mod</span>
+                </div>
+                <div class="tech-item">
+                    <strong>Compatibility:</strong>
+                    <span>Multiplayer & Single-player</span>
+                </div>
+                <div class="tech-item">
+                    <strong>Requirements:</strong>
+                    <span>tModLoader 1.4+</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download/CTA Section -->
+    <section id="download" class="download-section">
+        <div class="container">
+            <div class="download-content">
+                <h2>Ready to Transform Your Terraria Streams?</h2>
+                <p>Join the community of streamers using TwitchIntegrationPlus for interactive gameplay</p>
+                <div class="download-buttons">
+                    <a href="#" class="btn btn-primary btn-large disabled">
+                        <i class="fas fa-clock"></i>
+                        Steam Workshop Coming Soon
+                    </a>
+                </div>
+                <div class="community-links">
+                    <a href="#" class="community-link">
+                        <i class="fab fa-discord"></i>
+                        Join Discord
+                    </a>
+                    <a href="#" class="community-link">
+                        <i class="fas fa-book"></i>
+                        Documentation
+                    </a>
+                    <a href="#" class="community-link">
+                        <i class="fas fa-bug"></i>
+                        Report Issues
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>TwitchIntegrationPlus</h3>
+                    <p>Interactive Terraria streaming experience with real-time viewer engagement and secure Twitch integration.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#commands">Commands</a></li>
+                        <li><a href="#setup">Setup Guide</a></li>
+                        <li><a href="#security">Security</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Community</h4>
+                    <ul>
+                        <li><a href="#">Discord Server</a></li>
+                        <li><a href="#">Steam Workshop</a></li>
+                        <li><a href="#">Bug Reports</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Troubleshooting</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 TwitchIntegrationPlus. Open source project for the Terraria community.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <i class="fas fa-gamepad"></i>
+            </div>
+            <div class="loading-text">Loading TwitchIntegrationPlus...</div>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
