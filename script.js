@@ -263,7 +263,6 @@ function initAnimations() {
     // Add fade-in class to elements that should animate
     const animatedElements = [
         '.feature-card',
-        '.security-card',
         '.step',
         '.command-section'
     ];
@@ -303,6 +302,10 @@ function createFAQ() {
         {
             question: "What if a command isn't working?",
             answer: "Check your connection status with `/twitch status`. Make sure you're connected to chat and have the proper OAuth permissions. Restart the connection if needed."
+        },
+        {
+            question: "What permissions does the mod need when I authorize?",
+            answer: "The mod requests the following OAuth permissions: <br><br><strong>chat:read</strong> - Read chat messages for commands<br><strong>chat:edit</strong> - Send responses back to chat<br><strong>channel:read:subscriptions</strong> - Monitor subscription events<br><strong>bits:read</strong> - Monitor bit donations<br><strong>channel:read:redemptions</strong> - Monitor channel point redemptions<br><strong>moderator:read:followers</strong> - Monitor new followers<br><br>These permissions are essential for the mod to provide real-time interaction and respond to viewer activities. All tokens are encrypted and securely stored."
         }
     ];
     
