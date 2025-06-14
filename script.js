@@ -2,9 +2,9 @@
 const navToggle = document.getElementById('nav-toggle');
 const navMenu = document.getElementById('nav-menu');
 const commandSearch = document.getElementById('command-search');
-const filterButtons = document.querySelectorAll('.filter-btn');
+const filterChips = document.querySelectorAll('.chip');
 const commandSections = document.querySelectorAll('.command-section');
-const commandTables = document.querySelectorAll('.commands-table');
+const commandCards = document.querySelectorAll('.command-card');
 const backToTopButton = document.getElementById('back-to-top');
 const loadingScreen = document.getElementById('loading-screen');
 
@@ -37,62 +37,96 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Command search functionality
+// Enhanced command search functionality for cards
 function searchCommands(query) {
     query = query.toLowerCase().trim();
+    let totalVisible = 0;
     
-    commandTables.forEach(table => {
-        const rows = table.querySelectorAll('tbody tr');
-        let visibleRows = 0;
+    commandSections.forEach(section => {
+        const cards = section.querySelectorAll('.command-card');
+        let visibleCards = 0;
         
-        rows.forEach(row => {
-            const cells = row.querySelectorAll('td');
-            let rowText = '';
-            
+        cards.forEach(card => {
             // Clear any previous search styling
-            cells.forEach(cell => {
-                // Store original HTML if not already stored
-                if (!cell.dataset.originalHtml) {
-                    cell.dataset.originalHtml = cell.innerHTML;
+            const codeElements = card.querySelectorAll('code');
+            const descriptionElement = card.querySelector('.card-description');
+            const exampleElement = card.querySelector('.card-example');
+            
+            // Store original HTML if not already stored
+            codeElements.forEach(code => {
+                if (!code.dataset.originalHtml) {
+                    code.dataset.originalHtml = code.innerHTML;
                 }
-                // Restore original HTML
-                cell.innerHTML = cell.dataset.originalHtml;
-                rowText += cell.textContent.toLowerCase() + ' ';
+                code.innerHTML = code.dataset.originalHtml;
             });
             
-            if (query === '' || rowText.includes(query)) {
-                row.style.display = '';
-                visibleRows++;
+            if (descriptionElement && !descriptionElement.dataset.originalHtml) {
+                descriptionElement.dataset.originalHtml = descriptionElement.innerHTML;
+            }
+            if (descriptionElement) {
+                descriptionElement.innerHTML = descriptionElement.dataset.originalHtml;
+            }
+            
+            // Get card text content
+            const cardText = card.textContent.toLowerCase();
+            const commandName = card.dataset.command || '';
+            
+            if (query === '' || cardText.includes(query) || commandName.includes(query)) {
+                card.style.display = '';
+                visibleCards++;
+                totalVisible++;
                 
                 // Highlight search terms
                 if (query !== '') {
-                    cells.forEach(cell => {
-                        const cellHtml = cell.innerHTML;
-                        const cellText = cell.textContent;
-                        
-                        if (cellText.toLowerCase().includes(query)) {
-                            // Only highlight text nodes, not HTML tags
-                            const highlightedHtml = cellHtml.replace(
-                                new RegExp(`(${escapeRegExp(query)})(?![^<]*>)`, 'gi'),
+                    codeElements.forEach(code => {
+                        const codeHtml = code.innerHTML;
+                        if (codeHtml.toLowerCase().includes(query)) {
+                            const highlightedHtml = codeHtml.replace(
+                                new RegExp(`(${escapeRegExp(query)})`, 'gi'),
                                 '<mark class="search-highlight">$1</mark>'
                             );
-                            cell.innerHTML = highlightedHtml;
+                            code.innerHTML = highlightedHtml;
                         }
                     });
+                    
+                    if (descriptionElement) {
+                        const descHtml = descriptionElement.innerHTML;
+                        if (descHtml.toLowerCase().includes(query)) {
+                            const highlightedHtml = descHtml.replace(
+                                new RegExp(`(${escapeRegExp(query)})`, 'gi'),
+                                '<mark class="search-highlight">$1</mark>'
+                            );
+                            descriptionElement.innerHTML = highlightedHtml;
+                        }
+                    }
                 }
             } else {
-                row.style.display = 'none';
+                card.style.display = 'none';
             }
         });
         
-        // Show/hide section based on visible rows
-        const section = table.closest('.command-section');
-        if (visibleRows === 0 && query !== '') {
+        // Show/hide section based on visible cards
+        if (visibleCards === 0 && query !== '') {
             section.style.display = 'none';
         } else {
             section.style.display = '';
         }
     });
+    
+    // Update stats
+    updateCommandStats(totalVisible, query);
+}
+
+// Update command statistics
+function updateCommandStats(visibleCount, searchQuery) {
+    const totalCommandsElement = document.getElementById('total-commands');
+    if (totalCommandsElement) {
+        if (searchQuery && searchQuery.trim() !== '') {
+            totalCommandsElement.textContent = `${visibleCount}`;
+        } else {
+            totalCommandsElement.textContent = '45+';
+        }
+    }
 }
 
 // Helper function to escape regex special characters
@@ -100,7 +134,7 @@ function escapeRegExp(string) {
     return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
-// Filter functionality
+// Enhanced filter functionality for chips
 function filterCommands(category) {
     commandSections.forEach(section => {
         const sectionCategory = section.getAttribute('data-category');
@@ -112,9 +146,27 @@ function filterCommands(category) {
         }
     });
     
-    // Update active filter button
-    filterButtons.forEach(btn => btn.classList.remove('active'));
+    // Update active chip
+    filterChips.forEach(chip => chip.classList.remove('active'));
     document.querySelector(`[data-category="${category}"]`).classList.add('active');
+    
+    // Animate cards when filtering
+    animateVisibleCards();
+}
+
+// Animate visible cards
+function animateVisibleCards() {
+    const visibleCards = document.querySelectorAll('.command-card:not([style*="display: none"])');
+    visibleCards.forEach((card, index) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        
+        setTimeout(() => {
+            card.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+        }, index * 50);
+    });
 }
 
 // Back to top button visibility and functionality
@@ -274,8 +326,6 @@ function initAnimations() {
     });
 }
 
-
-
 // FAQ functionality
 function createFAQ() {
     const faqData = [
@@ -425,10 +475,10 @@ if (commandSearch) {
     });
 }
 
-if (filterButtons) {
-    filterButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const category = button.getAttribute('data-category');
+if (filterChips) {
+    filterChips.forEach(chip => {
+        chip.addEventListener('click', () => {
+            const category = chip.getAttribute('data-category');
             filterCommandsWithAnalytics(category);
             
             // Clear search when filtering
@@ -469,3 +519,29 @@ window.TwitchIntegrationPlus = {
     trackEvent,
     enhancedCopyToClipboard
 };
+
+// Toggle dropdown functionality for admin commands
+function toggleDropdown(dropdownId) {
+    const dropdown = document.getElementById(dropdownId);
+    const parentDropdown = dropdown.closest('.admin-dropdown');
+    const arrow = parentDropdown.querySelector('.dropdown-arrow');
+    
+    if (dropdown.classList.contains('active')) {
+        // Close dropdown
+        dropdown.classList.remove('active');
+        parentDropdown.classList.remove('active');
+        arrow.style.transform = 'rotate(0deg)';
+    } else {
+        // Close other dropdowns first
+        document.querySelectorAll('.dropdown-content.active').forEach(activeDropdown => {
+            activeDropdown.classList.remove('active');
+            activeDropdown.closest('.admin-dropdown').classList.remove('active');
+            activeDropdown.closest('.admin-dropdown').querySelector('.dropdown-arrow').style.transform = 'rotate(0deg)';
+        });
+        
+        // Open this dropdown
+        dropdown.classList.add('active');
+        parentDropdown.classList.add('active');
+        arrow.style.transform = 'rotate(180deg)';
+    }
+}

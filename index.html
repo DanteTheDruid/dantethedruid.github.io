@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html l    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iOCIgZmlsbD0iIzFlM2E4YSIvPgo8cGF0aCBkPSJNOCA4aDhWMTZIOHoiIGZpbGw9IiMxMGI5ODEiLz4KPHA+PC9wYXRoPiA8cGF0aCBkPSJNMTYgOGg4djhIMTZ6IiBmaWxsPSIjN2MzYWVkIi8+CjxwYXRoIGQ9Ik04IDE2aDh2OEg4eiIgZmlsbD0iI2ZiYmYyNCIvPgo8cGF0aCBkPSJNMTYgMTZoOHY4SDE2eiIgZmlsbD0iIzA1OTY2OSIvPgo8L3N2Zz4K">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iOCIgZmlsbD0iIzFlM2E4YSIvPgo8cGF0aCBkPSJNOCA4aDhWMTZIOHoiIGZpbGw9IiMxMGI5ODEiLz4KPHA+PC9wYXRoPiA8cGF0aCBkPSJNMTYgOGg4djhIMTZ6IiBmaWxsPSIjN2MzYWVkIi8+CjxwYXRoIGQ9Ik08IDE2aDh2OEg4eiIgZmlsbD0iI2ZiYmYyNCIvPgo8cGF0aCBkPSJNMTYgMTZoOHY4SDE2eiIgZmlsbD0iIzA1OTY2OSIvPgo8L3N2Zz4K">
     
     <!-- PWA Manifest -->
     <link rel="manifest" href="manifest.json">
@@ -68,8 +68,8 @@
                 <h1 class="hero-title">Twitch Integration Plus</h1>
                 <p class="hero-subtitle">Interactive Terraria Streaming Experience</p>
                 <p class="hero-description">
-                    Transform your Terraria streams with real-time viewer interaction, token rewards, and secure Twitch integration. 
-                    Let your viewers control the game through chat commands and earn rewards for watching!
+                    Transform your Terraria streams with real-time viewer interaction, token rewards, and an extensive spawn system. 
+                    Let your viewers control the game through chat commands, spawn creatures, and earn rewards for watching!
                 </p>
                 <div class="hero-buttons">
                     <a href="#setup" class="btn btn-primary">
@@ -87,8 +87,8 @@
                         <span class="stat-label">Token Rewards</span>
                     </div>
                     <div class="stat">
-                        <span class="stat-number">100%</span>
-                        <span class="stat-label">Secure</span>
+                        <span class="stat-number">100+</span>
+                        <span class="stat-label">Spawnable Mobs</span>
                     </div>
                 </div>
             </div>
@@ -185,247 +185,586 @@
                 <p>Complete guide to all available commands and their usage</p>
             </div>
             
-            <!-- Search and Filter -->
-            <div class="commands-controls">
-                <div class="search-container">
-                    <i class="fas fa-search"></i>
-                    <input type="text" id="command-search" placeholder="Search commands...">
+            <!-- Interactive Command Explorer -->
+            <div class="command-explorer">
+                <div class="explorer-header">
+                    <div class="search-container">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="command-search" placeholder="Search commands, effects, or mobs...">
+                    </div>
+                    <div class="filter-chips">
+                        <button class="chip active" data-category="all">
+                            <i class="fas fa-star"></i>
+                            All Commands
+                        </button>
+                        <button class="chip" data-category="viewer">
+                            <i class="fas fa-users"></i>
+                            Viewer
+                        </button>
+                        <button class="chip" data-category="redemption">
+                            <i class="fas fa-coins"></i>
+                            Redemptions
+                        </button>
+                        <button class="chip" data-category="spawn">
+                            <i class="fas fa-dragon"></i>
+                            Spawn System
+                        </button>
+                        <button class="chip" data-category="admin">
+                            <i class="fas fa-crown"></i>
+                            Admin
+                        </button>
+                    </div>
                 </div>
-                <div class="filter-container">
-                    <button class="filter-btn active" data-category="all">All Commands</button>
-                    <button class="filter-btn" data-category="viewer">Viewer Commands</button>
-                    <button class="filter-btn" data-category="redemption">Token Redemptions</button>
-                    <button class="filter-btn" data-category="admin">Admin Commands</button>
+                
+                <div class="explorer-stats">
+                    <div class="stat-chip">
+                        <i class="fas fa-terminal"></i>
+                        <span class="stat-number">45+</span>
+                        <span class="stat-label">Commands</span>
+                    </div>
+                    <div class="stat-chip">
+                        <i class="fas fa-coins"></i>
+                        <span class="stat-number">25+</span>
+                        <span class="stat-label">Redemptions</span>
+                    </div>
+                    <div class="stat-chip">
+                        <i class="fas fa-dragon"></i>
+                        <span class="stat-number">100+</span>
+                        <span class="stat-label">Spawnable Mobs</span>
+                    </div>
                 </div>
             </div>
 
             <!-- Viewer Commands -->
             <div class="command-section" data-category="viewer">
                 <h3><i class="fas fa-users"></i> Viewer Chat Commands</h3>
-                <div class="table-responsive">
-                    <table class="commands-table">
-                        <thead>
-                            <tr>
-                                <th>Command</th>
-                                <th>Description</th>
-                                <th>Example Response</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><code>!health</code></td>
-                                <td>Shows player's current health</td>
-                                <td><em>@viewer Player health: 450/500 (90%)</em></td>
-                            </tr>
-                            <tr>
-                                <td><code>!time</code></td>
-                                <td>Shows in-game time</td>
-                                <td><em>@viewer Current time: Day (75% complete)</em></td>
-                            </tr>
-                            <tr>
-                                <td><code>!players</code></td>
-                                <td>Lists active players</td>
-                                <td><em>@viewer 2 players online: Dante, Friend123</em></td>
-                            </tr>
-                            <tr>
-                                <td><code>!boss</code></td>
-                                <td>Shows active bosses</td>
-                                <td><em>@viewer Active bosses: Eye of Cthulhu</em></td>
-                            </tr>
-                            <tr>
-                                <td><code>!weather</code></td>
-                                <td>Shows weather conditions</td>
-                                <td><em>@viewer Current weather: Raining, Snow biome</em></td>
-                            </tr>
-                            <tr>
-                                <td><code>!tokens [username]</code></td>
-                                <td>Check token balance</td>
-                                <td><em>@viewer You have 150 tokens</em></td>
-                            </tr>
-                            <tr>
-                                <td><code>!leaderboard</code></td>
-                                <td>Top token holders</td>
-                                <td><em>Shows top 5 viewers with most tokens</em></td>
-                            </tr>
-                            <tr>
-                                <td><code>!watchtime</code></td>
-                                <td>Personal watch time</td>
-                                <td><em>@viewer You've watched for 2.5 hours</em></td>
-                            </tr>
-                            <tr>
-                                <td><code>!shop</code> / <code>!rewards</code></td>
-                                <td>View available redemptions</td>
-                                <td><em>Shows all redemption options with costs</em></td>
-                            </tr>
-                            <tr>
-                                <td><code>!redeem &lt;option&gt;</code> / <code>!r &lt;option&gt;</code></td>
-                                <td>Redeem tokens for effects</td>
-                                <td><em>@viewer Redeemed 'heal' for 50 tokens!</em></td>
-                            </tr>
-                            <tr>
-                                <td><code>!help</code> / <code>!commands</code></td>
-                                <td>Shows all commands</td>
-                                <td><em>Lists all available commands</em></td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <p class="section-description">Essential commands that all viewers can use to interact with the stream and check game information.</p>
+                
+                <div class="admin-dropdown-container">
+                    <div class="admin-dropdown">
+                        <div class="dropdown-header" onclick="toggleDropdown('game-info-commands')">
+                            <div class="dropdown-title">
+                                <i class="fas fa-info-circle"></i>
+                                <h4>Game Information Commands</h4>
+                                <span class="command-count">5 commands</span>
+                            </div>
+                            <i class="fas fa-chevron-down dropdown-arrow"></i>
+                        </div>
+                        <div class="dropdown-content" id="game-info-commands">
+                            <div class="command-grid">
+                                <div class="command-card" data-command="health">
+                                    <div class="card-header">
+                                        <code>!health</code>
+                                        <span class="card-badge viewer">Viewer</span>
+                                    </div>
+                                    <div class="card-description">
+                                        Shows player's current health status
+                                    </div>
+                                    <div class="card-example">
+                                        <i class="fas fa-quote-left"></i>
+                                        @viewer Player health: 450/500 (90%)
+                                    </div>
+                                </div>
+                                
+                                <div class="command-card" data-command="time">
+                                    <div class="card-header">
+                                        <code>!time</code>
+                                        <span class="card-badge viewer">Viewer</span>
+                                    </div>
+                                    <div class="card-description">
+                                        Shows current in-game time
+                                    </div>
+                                    <div class="card-example">
+                                        <i class="fas fa-quote-left"></i>
+                                        @viewer Current time: Day (75% complete)
+                                    </div>
+                                </div>
+                                
+                                <div class="command-card" data-command="players">
+                                    <div class="card-header">
+                                        <code>!players</code>
+                                        <span class="card-badge viewer">Viewer</span>
+                                    </div>
+                                    <div class="card-description">
+                                        Lists all active players in the game
+                                    </div>
+                                    <div class="card-example">
+                                        <i class="fas fa-quote-left"></i>
+                                        @viewer 2 players online: Dante, Friend123
+                                    </div>
+                                </div>
+                                
+                                <div class="command-card" data-command="boss">
+                                    <div class="card-header">
+                                        <code>!boss</code>
+                                        <span class="card-badge viewer">Viewer</span>
+                                    </div>
+                                    <div class="card-description">
+                                        Shows currently active bosses
+                                    </div>
+                                    <div class="card-example">
+                                        <i class="fas fa-quote-left"></i>
+                                        @viewer Active bosses: Eye of Cthulhu
+                                    </div>
+                                </div>
+                                
+                                <div class="command-card" data-command="weather">
+                                    <div class="card-header">
+                                        <code>!weather</code>
+                                        <span class="card-badge viewer">Viewer</span>
+                                    </div>
+                                    <div class="card-description">
+                                        Shows current weather conditions
+                                    </div>
+                                    <div class="card-example">
+                                        <i class="fas fa-quote-left"></i>
+                                        @viewer Current weather: Raining, Snow biome
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="admin-dropdown">
+                        <div class="dropdown-header" onclick="toggleDropdown('token-commands')">
+                            <div class="dropdown-title">
+                                <i class="fas fa-coins"></i>
+                                <h4>Token & Economy Commands</h4>
+                                <span class="command-count">3 commands</span>
+                            </div>
+                            <i class="fas fa-chevron-down dropdown-arrow"></i>
+                        </div>
+                        <div class="dropdown-content" id="token-commands">
+                            <div class="command-grid">
+                                <div class="command-card" data-command="tokens">
+                                    <div class="card-header">
+                                        <code>!tokens</code>
+                                        <span class="card-badge viewer">Viewer</span>
+                                    </div>
+                                    <div class="card-description">
+                                        Check your current token balance
+                                    </div>
+                                    <div class="card-example">
+                                        <i class="fas fa-quote-left"></i>
+                                        @viewer You have 150 tokens
+                                    </div>
+                                </div>
+                                
+                                <div class="command-card" data-command="leaderboard">
+                                    <div class="card-header">
+                                        <code>!leaderboard</code>
+                                        <span class="card-badge viewer">Viewer</span>
+                                    </div>
+                                    <div class="card-description">
+                                        Shows top token holders
+                                    </div>
+                                    <div class="card-example">
+                                        <i class="fas fa-quote-left"></i>
+                                        Shows top 5 viewers with most tokens
+                                    </div>
+                                </div>
+                                
+                                <div class="command-card" data-command="watchtime">
+                                    <div class="card-header">
+                                        <code>!watchtime</code>
+                                        <span class="card-badge viewer">Viewer</span>
+                                    </div>
+                                    <div class="card-description">
+                                        Check your personal watch time
+                                    </div>
+                                    <div class="card-example">
+                                        <i class="fas fa-quote-left"></i>
+                                        @viewer You've watched for 2.5 hours
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="admin-dropdown">
+                        <div class="dropdown-header" onclick="toggleDropdown('interaction-commands')">
+                            <div class="dropdown-title">
+                                <i class="fas fa-gamepad"></i>
+                                <h4>Interaction Commands</h4>
+                                <span class="command-count">3 commands</span>
+                            </div>
+                            <i class="fas fa-chevron-down dropdown-arrow"></i>
+                        </div>
+                        <div class="dropdown-content" id="interaction-commands">
+                            <div class="command-grid">
+                                <div class="command-card" data-command="shop">
+                                    <div class="card-header">
+                                        <code>!shop</code> / <code>!rewards</code>
+                                        <span class="card-badge viewer">Viewer</span>
+                                    </div>
+                                    <div class="card-description">
+                                        View all available redemptions and their costs
+                                    </div>
+                                    <div class="card-example">
+                                        <i class="fas fa-quote-left"></i>
+                                        Shows all redemption options with costs
+                                    </div>
+                                </div>
+                                
+                                <div class="command-card" data-command="redeem">
+                                    <div class="card-header">
+                                        <code>!redeem &lt;option&gt;</code>
+                                        <span class="card-badge viewer">Viewer</span>
+                                    </div>
+                                    <div class="card-description">
+                                        Redeem your tokens for various effects
+                                    </div>
+                                    <div class="card-example">
+                                        <i class="fas fa-quote-left"></i>
+                                        @viewer Redeemed 'heal' for 50 tokens!
+                                    </div>
+                                </div>
+                                
+                                <div class="command-card" data-command="help">
+                                    <div class="card-header">
+                                        <code>!help</code> / <code>!commands</code>
+                                        <span class="card-badge viewer">Viewer</span>
+                                    </div>
+                                    <div class="card-description">
+                                        Shows all available commands
+                                    </div>
+                                    <div class="card-example">
+                                        <i class="fas fa-quote-left"></i>
+                                        Lists all available commands
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <!-- Token Redemptions -->
             <div class="command-section" data-category="redemption">
                 <h3><i class="fas fa-coins"></i> Token Redemption System</h3>
+                <p class="section-description">Spend your earned tokens to influence gameplay, trigger events, and interact with the streamer's world.</p>
                 
-                <div class="redemption-category">
-                    <h4>Player Effects</h4>
-                    <div class="table-responsive">
-                        <table class="commands-table">
-                            <thead>
-                                <tr>
-                                    <th>Command</th>
-                                    <th>Description</th>
-                                    <th>Cost</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><code>heal</code></td>
-                                    <td>Heal the player by 100 HP</td>
-                                    <td><span class="token-cost">50 tokens</span></td>
-                                </tr>
-                                <tr>
-                                    <td><code>buff</code></td>
-                                    <td>Get a random buff for 5 minutes</td>
-                                    <td><span class="token-cost">30 tokens</span></td>
-                                </tr>
-                                <tr>
-                                    <td><code>item</code></td>
-                                    <td>Spawn a random item</td>
-                                    <td><span class="token-cost">75 tokens</span></td>
-                                </tr>
-                                <tr>
-                                    <td><code>respawn</code></td>
-                                    <td>Respawn if the player is dead</td>
-                                    <td><span class="token-cost">40 tokens</span></td>
-                                </tr>
-                                <tr>
-                                    <td><code>biome</code></td>
-                                    <td>Get biome-specific buffs based on current location</td>
-                                    <td><span class="token-cost">120 tokens</span></td>
-                                </tr>
-                            </tbody>
-                        </table>
+                <div class="admin-dropdown-container">
+                    <div class="admin-dropdown">
+                        <div class="dropdown-header" onclick="toggleDropdown('player-effects')">
+                            <div class="dropdown-title">
+                                <i class="fas fa-heart"></i>
+                                <h4>Player Effects</h4>
+                                <span class="command-count">5 redemptions</span>
+                            </div>
+                            <i class="fas fa-chevron-down dropdown-arrow"></i>
+                        </div>
+                        <div class="dropdown-content" id="player-effects">
+                            <div class="command-grid">
+                                <div class="command-card redemption" data-command="heal">
+                                    <div class="card-header">
+                                        <code>!redeem heal</code>
+                                        <span class="token-cost">50 tokens</span>
+                                    </div>
+                                    <div class="card-description">
+                                        Heal the player by 100 HP instantly
+                                    </div>
+                                    <div class="card-effect">
+                                        <i class="fas fa-heart"></i>
+                                        Player Effect
+                                    </div>
+                                </div>
+                                
+                                <div class="command-card redemption" data-command="buff">
+                                    <div class="card-header">
+                                        <code>!redeem buff</code>
+                                        <span class="token-cost">30 tokens</span>
+                                    </div>
+                                    <div class="card-description">
+                                        Get a random beneficial buff for 5 minutes
+                                    </div>
+                                    <div class="card-effect">
+                                        <i class="fas fa-magic"></i>
+                                        Player Effect
+                                    </div>
+                                </div>
+                                
+                                <div class="command-card redemption" data-command="item">
+                                    <div class="card-header">
+                                        <code>!redeem item</code>
+                                        <span class="token-cost">75 tokens</span>
+                                    </div>
+                                    <div class="card-description">
+                                        Spawn a random useful item in the world
+                                    </div>
+                                    <div class="card-effect">
+                                        <i class="fas fa-gift"></i>
+                                        Player Effect
+                                    </div>
+                                </div>
+                                
+                                <div class="command-card redemption" data-command="respawn">
+                                    <div class="card-header">
+                                        <code>!redeem respawn</code>
+                                        <span class="token-cost">40 tokens</span>
+                                    </div>
+                                    <div class="card-description">
+                                        Respawn the player if they are currently dead
+                                    </div>
+                                    <div class="card-effect">
+                                        <i class="fas fa-life-ring"></i>
+                                        Player Effect
+                                    </div>
+                                </div>
+                                
+                                <div class="command-card redemption" data-command="biome">
+                                    <div class="card-header">
+                                        <code>!redeem biome</code>
+                                        <span class="token-cost">120 tokens</span>
+                                    </div>
+                                    <div class="card-description">
+                                        Get biome-specific buffs based on current location
+                                    </div>
+                                    <div class="card-effect">
+                                        <i class="fas fa-leaf"></i>
+                                        Player Effect
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
 
-                <div class="redemption-category">
-                    <h4>Fun Effects</h4>
-                    <div class="table-responsive">
-                        <table class="commands-table">
-                            <thead>
-                                <tr>
-                                    <th>Command</th>
-                                    <th>Description</th>
-                                    <th>Cost</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><code>rain</code></td>
-                                    <td>Toggle rain on/off</td>
-                                    <td><span class="token-cost">25 tokens</span></td>
-                                </tr>
-                                <tr>
-                                    <td><code>daynight</code></td>
-                                    <td>Toggle between day and night</td>
-                                    <td><span class="token-cost">35 tokens</span></td>
-                                </tr>
-                                <tr>
-                                    <td><code>slime</code></td>
-                                    <td>Spawn a slime party</td>
-                                    <td><span class="token-cost">20 tokens</span></td>
-                                </tr>
-                                <tr>
-                                    <td><code>windy</code></td>
-                                    <td>Make it very windy</td>
-                                    <td><span class="token-cost">40 tokens</span></td>
-                                </tr>
-                                <tr>
-                                    <td><code>bunnies</code></td>
-                                    <td>Spawn a horde of bunnies</td>
-                                    <td><span class="token-cost">30 tokens</span></td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    <div class="admin-dropdown">
+                        <div class="dropdown-header" onclick="toggleDropdown('fun-effects')">
+                            <div class="dropdown-title">
+                                <i class="fas fa-smile"></i>
+                                <h4>Fun & Interactive Effects</h4>
+                                <span class="command-count">7 redemptions</span>
+                            </div>
+                            <i class="fas fa-chevron-down dropdown-arrow"></i>
+                        </div>
+                        <div class="dropdown-content" id="fun-effects">
+                            <div class="command-grid">
+                                <div class="command-card redemption" data-command="rain">
+                                    <div class="card-header">
+                                        <code>!redeem rain</code>
+                                        <span class="token-cost">25 tokens</span>
+                                    </div>
+                                    <div class="card-description">
+                                        Toggle rain on or off in the world
+                                    </div>
+                                    <div class="card-effect">
+                                        <i class="fas fa-cloud-rain"></i>
+                                        Weather Effect
+                                    </div>
+                                </div>
+                                
+                                <div class="command-card redemption" data-command="daynight">
+                                    <div class="card-header">
+                                        <code>!redeem daynight</code>
+                                        <span class="token-cost">35 tokens</span>
+                                    </div>
+                                    <div class="card-description">
+                                        Toggle between day and night instantly
+                                    </div>
+                                    <div class="card-effect">
+                                        <i class="fas fa-sun"></i>
+                                        Time Effect
+                                    </div>
+                                </div>
+                                
+                                <div class="command-card redemption" data-command="slime">
+                                    <div class="card-header">
+                                        <code>!redeem slime</code>
+                                        <span class="token-cost">20 tokens</span>
+                                    </div>
+                                    <div class="card-description">
+                                        Spawn a harmless slime party around the player
+                                    </div>
+                                    <div class="card-effect">
+                                        <i class="fas fa-smile"></i>
+                                        Spawn Effect
+                                    </div>
+                                </div>
+                                
+                                <div class="command-card redemption" data-command="windy">
+                                    <div class="card-header">
+                                        <code>!redeem windy</code>
+                                        <span class="token-cost">40 tokens</span>
+                                    </div>
+                                    <div class="card-description">
+                                        Make the world very windy for atmospheric effect
+                                    </div>
+                                    <div class="card-effect">
+                                        <i class="fas fa-wind"></i>
+                                        Weather Effect
+                                    </div>
+                                </div>
+                                
+                                <div class="command-card redemption" data-command="bunnies">
+                                    <div class="card-header">
+                                        <code>!redeem bunnies</code>
+                                        <span class="token-cost">30 tokens</span>
+                                    </div>
+                                    <div class="card-description">
+                                        Spawn a horde of adorable bunnies everywhere
+                                    </div>
+                                    <div class="card-effect">
+                                        <i class="fas fa-heart"></i>
+                                        Spawn Effect
+                                    </div>
+                                </div>
+                                
+                                <div class="command-card redemption" data-command="confusion">
+                                    <div class="card-header">
+                                        <code>!redeem confusion</code>
+                                        <span class="token-cost">35 tokens</span>
+                                    </div>
+                                    <div class="card-description">
+                                        Reverse player's movement controls for 30 seconds
+                                    </div>
+                                    <div class="card-effect">
+                                        <i class="fas fa-dizzy"></i>
+                                        Player Debuff
+                                    </div>
+                                </div>
+                                
+                                <div class="command-card redemption" data-command="gravity">
+                                    <div class="card-header">
+                                        <code>!redeem gravity</code>
+                                        <span class="token-cost">50 tokens</span>
+                                    </div>
+                                    <div class="card-description">
+                                        Flip player's gravity for 60 seconds of chaos
+                                    </div>
+                                    <div class="card-effect">
+                                        <i class="fas fa-arrows-alt-v"></i>
+                                        Player Debuff
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
 
-                <div class="redemption-category">
-                    <h4>Event Effects</h4>
-                    <div class="table-responsive">
-                        <table class="commands-table">
-                            <thead>
-                                <tr>
-                                    <th>Command</th>
-                                    <th>Description</th>
-                                    <th>Cost</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><code>slimerain</code></td>
-                                    <td>Trigger the Slime Rain event</td>
-                                    <td><span class="token-cost">150 tokens</span></td>
-                                </tr>
-                                <tr>
-                                    <td><code>bloodmoon</code></td>
-                                    <td>Trigger a Blood Moon</td>
-                                    <td><span class="token-cost">200 tokens</span></td>
-                                </tr>
-                                <tr>
-                                    <td><code>eclipse</code></td>
-                                    <td>Trigger a Solar Eclipse</td>
-                                    <td><span class="token-cost">300 tokens</span></td>
-                                </tr>
-                                <tr>
-                                    <td><code>sandstorm</code></td>
-                                    <td>Trigger a sandstorm</td>
-                                    <td><span class="token-cost">100 tokens</span></td>
-                                </tr>
-                                <tr>
-                                    <td><code>chaos</code></td>
-                                    <td>Spawn random creatures everywhere</td>
-                                    <td><span class="token-cost">180 tokens</span></td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    <div class="admin-dropdown">
+                        <div class="dropdown-header" onclick="toggleDropdown('event-effects')">
+                            <div class="dropdown-title">
+                                <i class="fas fa-bolt"></i>
+                                <h4>Event Effects</h4>
+                                <span class="command-count">5 redemptions</span>
+                            </div>
+                            <i class="fas fa-chevron-down dropdown-arrow"></i>
+                        </div>
+                        <div class="dropdown-content" id="event-effects">
+                            <div class="command-grid">
+                                <div class="command-card redemption" data-command="slimerain">
+                                    <div class="card-header">
+                                        <code>!redeem slimerain</code>
+                                        <span class="token-cost">150 tokens</span>
+                                    </div>
+                                    <div class="card-description">
+                                        Trigger the epic Slime Rain event
+                                    </div>
+                                    <div class="card-effect">
+                                        <i class="fas fa-cloud-rain"></i>
+                                        Major Event
+                                    </div>
+                                </div>
+                                
+                                <div class="command-card redemption" data-command="bloodmoon">
+                                    <div class="card-header">
+                                        <code>!redeem bloodmoon</code>
+                                        <span class="token-cost">200 tokens</span>
+                                    </div>
+                                    <div class="card-description">
+                                        Trigger a terrifying Blood Moon event
+                                    </div>
+                                    <div class="card-effect">
+                                        <i class="fas fa-moon"></i>
+                                        Major Event
+                                    </div>
+                                </div>
+                                
+                                <div class="command-card redemption" data-command="eclipse">
+                                    <div class="card-header">
+                                        <code>!redeem eclipse</code>
+                                        <span class="token-cost">300 tokens</span>
+                                    </div>
+                                    <div class="card-description">
+                                        Trigger a dangerous Solar Eclipse event
+                                    </div>
+                                    <div class="card-effect">
+                                        <i class="fas fa-sun"></i>
+                                        Major Event
+                                    </div>
+                                </div>
+                                
+                                <div class="command-card redemption" data-command="sandstorm">
+                                    <div class="card-header">
+                                        <code>!redeem sandstorm</code>
+                                        <span class="token-cost">100 tokens</span>
+                                    </div>
+                                    <div class="card-description">
+                                        Trigger a blinding sandstorm in desert areas
+                                    </div>
+                                    <div class="card-effect">
+                                        <i class="fas fa-wind"></i>
+                                        Weather Event
+                                    </div>
+                                </div>
+                                
+                                <div class="command-card redemption" data-command="chaos">
+                                    <div class="card-header">
+                                        <code>!redeem chaos</code>
+                                        <span class="token-cost">180 tokens</span>
+                                    </div>
+                                    <div class="card-description">
+                                        Spawn random creatures everywhere for pure chaos
+                                    </div>
+                                    <div class="card-effect">
+                                        <i class="fas fa-bolt"></i>
+                                        Chaos Event
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
 
-                <div class="redemption-category">
-                    <h4>Advanced Effects</h4>
-                    <div class="table-responsive">
-                        <table class="commands-table">
-                            <thead>
-                                <tr>
-                                    <th>Command</th>
-                                    <th>Description</th>
-                                    <th>Cost</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><code>boss</code></td>
-                                    <td>Spawn a random boss</td>
-                                    <td><span class="token-cost">500 tokens</span></td>
-                                </tr>
-                                <tr>
-                                    <td><code>invasion</code></td>
-                                    <td>Trigger a random invasion</td>
-                                    <td><span class="token-cost">400 tokens</span></td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    <div class="admin-dropdown">
+                        <div class="dropdown-header" onclick="toggleDropdown('advanced-effects')">
+                            <div class="dropdown-title">
+                                <i class="fas fa-skull"></i>
+                                <h4>Advanced Effects</h4>
+                                <span class="command-count">2 redemptions</span>
+                            </div>
+                            <i class="fas fa-chevron-down dropdown-arrow"></i>
+                        </div>
+                        <div class="dropdown-content" id="advanced-effects">
+                            <div class="command-grid">
+                                <div class="command-card redemption" data-command="boss">
+                                    <div class="card-header">
+                                        <code>!redeem boss</code>
+                                        <span class="token-cost">500 tokens</span>
+                                    </div>
+                                    <div class="card-description">
+                                        Spawn a random boss - extremely dangerous!
+                                    </div>
+                                    <div class="card-effect">
+                                        <i class="fas fa-skull"></i>
+                                        Boss Spawn
+                                    </div>
+                                </div>
+                                
+                                <div class="command-card redemption" data-command="invasion">
+                                    <div class="card-header">
+                                        <code>!redeem invasion</code>
+                                        <span class="token-cost">400 tokens</span>
+                                    </div>
+                                    <div class="card-description">
+                                        Trigger a random invasion event
+                                    </div>
+                                    <div class="card-effect">
+                                        <i class="fas fa-shield-alt"></i>
+                                        Invasion Event
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -433,101 +772,539 @@
             <!-- Admin Commands -->
             <div class="command-section" data-category="admin">
                 <h3><i class="fas fa-crown"></i> Admin Commands</h3>
+                <p class="section-description">Powerful administrative tools for streamers and moderators to manage the interactive experience.</p>
                 
-                <div class="admin-category">
-                    <h4>Twitch Chat Admin Commands</h4>
+                <div class="admin-dropdown-container">
+                    <div class="admin-dropdown">
+                        <div class="dropdown-header" onclick="toggleDropdown('twitch-chat-admin')">
+                            <div class="dropdown-title">
+                                <i class="fas fa-comments"></i>
+                                <h4>Twitch Chat Admin Commands</h4>
+                                <span class="command-count">4 commands</span>
+                            </div>
+                            <i class="fas fa-chevron-down dropdown-arrow"></i>
+                        </div>
+                        <div class="dropdown-content" id="twitch-chat-admin">
+                            <div class="command-grid">
+                                <div class="command-card admin" data-command="admin-give">
+                                    <div class="card-header">
+                                        <code>!admin give &lt;user/all&gt; &lt;amount&gt;</code>
+                                        <span class="card-badge admin">Admin</span>
+                                    </div>
+                                    <div class="card-description">
+                                        Give tokens to specific viewers or all viewers at once
+                                    </div>
+                                    <div class="card-example">
+                                        <i class="fas fa-quote-left"></i>
+                                        !admin give @viewer123 100
+                                    </div>
+                                </div>
+                                
+                                <div class="command-card admin" data-command="admin-spawn">
+                                    <div class="card-header">
+                                        <code>!admin spawn &lt;entity&gt; [count]</code>
+                                        <span class="card-badge admin">Admin</span>
+                                    </div>
+                                    <div class="card-description">
+                                        Spawn any creature in the game (bypasses progression locks)
+                                    </div>
+                                    <div class="card-example">
+                                        <i class="fas fa-quote-left"></i>
+                                        !admin spawn vampire 3
+                                    </div>
+                                </div>
+                                
+                                <div class="command-card admin" data-command="admin-weather">
+                                    <div class="card-header">
+                                        <code>!admin weather &lt;type&gt;</code>
+                                        <span class="card-badge admin">Admin</span>
+                                    </div>
+                                    <div class="card-description">
+                                        Control weather conditions directly
+                                    </div>
+                                    <div class="card-example">
+                                        <i class="fas fa-quote-left"></i>
+                                        !admin weather rain
+                                    </div>
+                                </div>
+                                
+                                <div class="command-card admin" data-command="admin-time">
+                                    <div class="card-header">
+                                        <code>!admin time &lt;day/night&gt;</code>
+                                        <span class="card-badge admin">Admin</span>
+                                    </div>
+                                    <div class="card-description">
+                                        Control the day/night cycle
+                                    </div>
+                                    <div class="card-example">
+                                        <i class="fas fa-quote-left"></i>
+                                        !admin time night
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="admin-dropdown">
+                        <div class="dropdown-header" onclick="toggleDropdown('in-game-admin')">
+                            <div class="dropdown-title">
+                                <i class="fas fa-gamepad"></i>
+                                <h4>In-Game Admin Commands (Streamer Only)</h4>
+                                <span class="command-count">12 commands</span>
+                            </div>
+                            <i class="fas fa-chevron-down dropdown-arrow"></i>
+                        </div>
+                        <div class="dropdown-content" id="in-game-admin">
+                            <div class="command-grid">
+                                <div class="command-card admin" data-command="twitch-help">
+                                    <div class="card-header">
+                                        <code>/twitch help</code>
+                                        <span class="card-badge admin">Streamer</span>
+                                    </div>
+                                    <div class="card-description">
+                                        Show all available in-game commands
+                                    </div>
+                                </div>
+                                
+                                <div class="command-card admin" data-command="twitch-auth">
+                                    <div class="card-header">
+                                        <code>/twitch auth</code>
+                                        <span class="card-badge admin">Streamer</span>
+                                    </div>
+                                    <div class="card-description">
+                                        Connect your Twitch account with OAuth
+                                    </div>
+                                </div>
+                                
+                                <div class="command-card admin" data-command="twitch-connect">
+                                    <div class="card-header">
+                                        <code>/twitch connect</code>
+                                        <span class="card-badge admin">Streamer</span>
+                                    </div>
+                                    <div class="card-description">
+                                        Connect to Twitch chat and start receiving commands
+                                    </div>
+                                </div>
+                                
+                                <div class="command-card admin" data-command="twitch-disconnect">
+                                    <div class="card-header">
+                                        <code>/twitch disconnect</code>
+                                        <span class="card-badge admin">Streamer</span>
+                                    </div>
+                                    <div class="card-description">
+                                        Disconnect from Twitch chat
+                                    </div>
+                                </div>
+                                
+                                <div class="command-card admin" data-command="twitch-status">
+                                    <div class="card-header">
+                                        <code>/twitch status</code>
+                                        <span class="card-badge admin">Streamer</span>
+                                    </div>
+                                    <div class="card-description">
+                                        Show current connection status and stats
+                                    </div>
+                                </div>
+                                
+                                <div class="command-card admin" data-command="twitch-tokens">
+                                    <div class="card-header">
+                                        <code>/twitch tokens [username]</code>
+                                        <span class="card-badge admin">Streamer</span>
+                                    </div>
+                                    <div class="card-description">
+                                        Show token leaderboard or check specific viewer
+                                    </div>
+                                </div>
+                                
+                                <div class="command-card admin" data-command="twitch-give">
+                                    <div class="card-header">
+                                        <code>/twitch give &lt;user&gt; &lt;amount&gt;</code>
+                                        <span class="card-badge admin">Streamer</span>
+                                    </div>
+                                    <div class="card-description">
+                                        Give tokens to a specific viewer
+                                    </div>
+                                </div>
+                                
+                                <div class="command-card admin" data-command="twitch-take">
+                                    <div class="card-header">
+                                        <code>/twitch take &lt;user&gt; &lt;amount&gt;</code>
+                                        <span class="card-badge admin">Streamer</span>
+                                    </div>
+                                    <div class="card-description">
+                                        Remove tokens from a viewer
+                                    </div>
+                                </div>
+                                
+                                <div class="command-card admin" data-command="twitch-set">
+                                    <div class="card-header">
+                                        <code>/twitch set &lt;user&gt; &lt;amount&gt;</code>
+                                        <span class="card-badge admin">Streamer</span>
+                                    </div>
+                                    <div class="card-description">
+                                        Set a viewer's token balance to specific amount
+                                    </div>
+                                </div>
+                                
+                                <div class="command-card admin" data-command="twitch-autotokens">
+                                    <div class="card-header">
+                                        <code>/twitch autotokens</code>
+                                        <span class="card-badge admin">Streamer</span>
+                                    </div>
+                                    <div class="card-description">
+                                        Show automatic token reward status
+                                    </div>
+                                </div>
+                                
+                                <div class="command-card admin" data-command="twitch-reward">
+                                    <div class="card-header">
+                                        <code>/twitch reward</code>
+                                        <span class="card-badge admin">Streamer</span>
+                                    </div>
+                                    <div class="card-description">
+                                        Manually trigger token rewards for all viewers
+                                    </div>
+                                </div>
+                                
+                                <div class="command-card admin" data-command="twitch-blacklist">
+                                    <div class="card-header">
+                                        <code>/twitch blacklist &lt;add/remove/list&gt;</code>
+                                        <span class="card-badge admin">Streamer</span>
+                                    </div>
+                                    <div class="card-description">
+                                        Manage viewer blacklist for command restrictions
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Spawn System -->
+            <div class="command-section" data-category="spawn">
+                <h3><i class="fas fa-dragon"></i> Spawn System</h3>
+                <p class="section-description">Interactive mob spawning system with progression-based unlocks and balanced token costs. Viewers can spawn creatures that match the current game progression level.</p>
+                
+                <div class="spawn-overview">
+                    <div class="spawn-info-cards">
+                        <div class="spawn-info-card">
+                            <i class="fas fa-terminal"></i>
+                            <h4>Basic Commands</h4>
+                            <p><code>!spawn &lt;mobname&gt;</code> - Spawn specific mob</p>
+                            <p><code>!spawn random</code> - Random spawn (30-50 tokens)</p>
+                            <p><code>!spawnlist</code> - View available mobs</p>
+                        </div>
+                        <div class="spawn-info-card">
+                            <i class="fas fa-chart-line"></i>
+                            <h4>Progression System</h4>
+                            <p>Mobs unlock as you defeat bosses</p>
+                            <p>Higher tier enemies cost more tokens</p>
+                            <p>Game Masters can spawn anything for free</p>
+                        </div>
+                        <div class="spawn-info-card">
+                            <i class="fas fa-coins"></i>
+                            <h4>Token Costs</h4>
+                            <p>Critters: 5-15 tokens</p>
+                            <p>Basic enemies: 20-50 tokens</p>
+                            <p>Elite enemies: 130-250 tokens</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="redemption-category">
+                    <h4>Early Game Mobs (Always Available)</h4>
                     <div class="table-responsive">
                         <table class="commands-table">
                             <thead>
                                 <tr>
                                     <th>Command</th>
-                                    <th>Description</th>
+                                    <th>Display Name</th>
+                                    <th>Cost</th>
+                                    <th>Notes</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><code>!admin give &lt;user/all&gt; &lt;amount&gt;</code></td>
-                                    <td>Give tokens to specific viewer or all viewers</td>
+                                    <td><code>bunny</code></td>
+                                    <td>Bunny</td>
+                                    <td><span class="token-cost">5-15 tokens</span></td>
+                                    <td>Peaceful critter</td>
                                 </tr>
                                 <tr>
-                                    <td><code>!admin spawn &lt;entity&gt; [count]</code></td>
-                                    <td>Spawn creatures in the game</td>
+                                    <td><code>goldfish</code></td>
+                                    <td>Goldfish</td>
+                                    <td><span class="token-cost">5-15 tokens</span></td>
+                                    <td>Peaceful critter</td>
                                 </tr>
                                 <tr>
-                                    <td><code>!admin weather &lt;type&gt;</code></td>
-                                    <td>Control weather conditions</td>
+                                    <td><code>bird</code></td>
+                                    <td>Bird</td>
+                                    <td><span class="token-cost">5-15 tokens</span></td>
+                                    <td>Peaceful critter</td>
                                 </tr>
                                 <tr>
-                                    <td><code>!admin time &lt;day/night&gt;</code></td>
-                                    <td>Control day/night cycle</td>
+                                    <td><code>slime</code></td>
+                                    <td>Blue Slime</td>
+                                    <td><span class="token-cost">10-25 tokens</span></td>
+                                    <td>Basic enemy</td>
+                                </tr>
+                                <tr>
+                                    <td><code>greenslime</code></td>
+                                    <td>Green Slime</td>
+                                    <td><span class="token-cost">10-25 tokens</span></td>
+                                    <td>Basic enemy</td>
+                                </tr>
+                                <tr>
+                                    <td><code>zombie</code></td>
+                                    <td>Zombie</td>
+                                    <td><span class="token-cost">20-35 tokens</span></td>
+                                    <td>Basic enemy</td>
+                                </tr>
+                                <tr>
+                                    <td><code>demoneye</code></td>
+                                    <td>Demon Eye</td>
+                                    <td><span class="token-cost">20-35 tokens</span></td>
+                                    <td>Flying enemy</td>
+                                </tr>
+                                <tr>
+                                    <td><code>cavebat</code></td>
+                                    <td>Cave Bat</td>
+                                    <td><span class="token-cost">20-35 tokens</span></td>
+                                    <td>Flying enemy</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
 
-                <div class="admin-category">
-                    <h4>In-Game Admin Commands (Streamer Only)</h4>
+                <div class="redemption-category">
+                    <h4>Post-Eye of Cthulhu (30-65 tokens)</h4>
                     <div class="table-responsive">
                         <table class="commands-table">
                             <thead>
                                 <tr>
                                     <th>Command</th>
-                                    <th>Description</th>
+                                    <th>Display Name</th>
+                                    <th>Cost</th>
+                                    <th>Notes</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><code>/twitch help</code></td>
-                                    <td>Show all available commands</td>
+                                    <td><code>skeleton</code></td>
+                                    <td>Skeleton</td>
+                                    <td><span class="token-cost">30-50 tokens</span></td>
+                                    <td>Underground enemy</td>
                                 </tr>
                                 <tr>
-                                    <td><code>/twitch auth</code></td>
-                                    <td>Connect your Twitch account</td>
+                                    <td><code>skeletonarcher</code></td>
+                                    <td>Skeleton Archer</td>
+                                    <td><span class="token-cost">30-50 tokens</span></td>
+                                    <td>Ranged skeleton</td>
                                 </tr>
                                 <tr>
-                                    <td><code>/twitch connect</code></td>
-                                    <td>Connect to Twitch chat</td>
+                                    <td><code>harpy</code></td>
+                                    <td>Harpy</td>
+                                    <td><span class="token-cost">40-65 tokens</span></td>
+                                    <td>Sky enemy</td>
                                 </tr>
                                 <tr>
-                                    <td><code>/twitch disconnect</code></td>
-                                    <td>Disconnect from Twitch</td>
+                                    <td><code>tim</code></td>
+                                    <td>Tim</td>
+                                    <td><span class="token-cost">40-65 tokens</span></td>
+                                    <td>Rare mage enemy</td>
                                 </tr>
                                 <tr>
-                                    <td><code>/twitch status</code></td>
-                                    <td>Show current connection status</td>
+                                    <td><code>demon</code></td>
+                                    <td>Demon</td>
+                                    <td><span class="token-cost">40-65 tokens</span></td>
+                                    <td>Underworld enemy</td>
                                 </tr>
                                 <tr>
-                                    <td><code>/twitch tokens [username]</code></td>
-                                    <td>Show token leaderboard or check specific viewer</td>
-                                </tr>
-                                <tr>
-                                    <td><code>/twitch give &lt;username&gt; &lt;amount&gt;</code></td>
-                                    <td>Give tokens to a viewer</td>
-                                </tr>
-                                <tr>
-                                    <td><code>/twitch take &lt;username&gt; &lt;amount&gt;</code></td>
-                                    <td>Remove tokens from a viewer</td>
-                                </tr>
-                                <tr>
-                                    <td><code>/twitch set &lt;username&gt; &lt;amount&gt;</code></td>
-                                    <td>Set a viewer's token balance</td>
-                                </tr>
-                                <tr>
-                                    <td><code>/twitch autotokens</code></td>
-                                    <td>Show automatic token reward status</td>
-                                </tr>
-                                <tr>
-                                    <td><code>/twitch reward</code></td>
-                                    <td>Manually trigger token rewards for all viewers</td>
-                                </tr>
-                                <tr>
-                                    <td><code>/twitch blacklist &lt;add/remove/list&gt; &lt;username&gt;</code></td>
-                                    <td>Manage viewer blacklist</td>
+                                    <td><code>fireimp</code></td>
+                                    <td>Fire Imp</td>
+                                    <td><span class="token-cost">40-65 tokens</span></td>
+                                    <td>Underworld enemy</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
+                </div>
+
+                <div class="redemption-category">
+                    <h4>Post-Skeletron - Dungeon Enemies (60-85 tokens)</h4>
+                    <div class="table-responsive">
+                        <table class="commands-table">
+                            <thead>
+                                <tr>
+                                    <th>Command</th>
+                                    <th>Display Name</th>
+                                    <th>Cost</th>
+                                    <th>Notes</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>cursedskull</code></td>
+                                    <td>Cursed Skull</td>
+                                    <td><span class="token-cost">60-85 tokens</span></td>
+                                    <td>Dungeon enemy</td>
+                                </tr>
+                                <tr>
+                                    <td><code>darkcaster</code></td>
+                                    <td>Dark Caster</td>
+                                    <td><span class="token-cost">60-85 tokens</span></td>
+                                    <td>Dungeon mage</td>
+                                </tr>
+                                <tr>
+                                    <td><code>armedskeleton</code></td>
+                                    <td>Armored Skeleton</td>
+                                    <td><span class="token-cost">60-85 tokens</span></td>
+                                    <td>Dungeon enemy</td>
+                                </tr>
+                                <tr>
+                                    <td><code>spikedball</code></td>
+                                    <td>Spike Ball</td>
+                                    <td><span class="token-cost">60-85 tokens</span></td>
+                                    <td><strong>60s duration limit</strong></td>
+                                </tr>
+                                <tr>
+                                    <td><code>cursedhammer</code></td>
+                                    <td>Cursed Hammer</td>
+                                    <td><span class="token-cost">60-85 tokens</span></td>
+                                    <td>Dungeon enemy</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="redemption-category">
+                    <h4>Hardmode Enemies (70-150 tokens)</h4>
+                    <div class="table-responsive">
+                        <table class="commands-table">
+                            <thead>
+                                <tr>
+                                    <th>Command</th>
+                                    <th>Display Name</th>
+                                    <th>Cost</th>
+                                    <th>Notes</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>unicorn</code></td>
+                                    <td>Unicorn</td>
+                                    <td><span class="token-cost">60-80 tokens</span></td>
+                                    <td>Peaceful hardmode creature</td>
+                                </tr>
+                                <tr>
+                                    <td><code>pixie</code></td>
+                                    <td>Pixie</td>
+                                    <td><span class="token-cost">60-80 tokens</span></td>
+                                    <td>Peaceful hardmode creature</td>
+                                </tr>
+                                <tr>
+                                    <td><code>wraith</code></td>
+                                    <td>Wraith</td>
+                                    <td><span class="token-cost">90-130 tokens</span></td>
+                                    <td>Dangerous enemy</td>
+                                </tr>
+                                <tr>
+                                    <td><code>mimic</code></td>
+                                    <td>Mimic</td>
+                                    <td><span class="token-cost">90-130 tokens</span></td>
+                                    <td>Chest mimic</td>
+                                </tr>
+                                <tr>
+                                    <td><code>clown</code></td>
+                                    <td>Clown</td>
+                                    <td><span class="token-cost">110-150 tokens</span></td>
+                                    <td>Blood Moon enemy</td>
+                                </tr>
+                                <tr>
+                                    <td><code>vampire</code></td>
+                                    <td>Vampire</td>
+                                    <td><span class="token-cost">110-150 tokens</span></td>
+                                    <td>Night enemy</td>
+                                </tr>
+                                <tr>
+                                    <td><code>reddevil</code></td>
+                                    <td>Red Devil</td>
+                                    <td><span class="token-cost">110-150 tokens</span></td>
+                                    <td>Underworld enemy</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="redemption-category">
+                    <h4>Elite & Post-Plantera (130-250 tokens)</h4>
+                    <div class="table-responsive">
+                        <table class="commands-table">
+                            <thead>
+                                <tr>
+                                    <th>Command</th>
+                                    <th>Display Name</th>
+                                    <th>Cost</th>
+                                    <th>Notes</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>icegolem</code></td>
+                                    <td>Ice Golem</td>
+                                    <td><span class="token-cost">130-180 tokens</span></td>
+                                    <td>Snow mini-boss</td>
+                                </tr>
+                                <tr>
+                                    <td><code>nymph</code></td>
+                                    <td>Nymph</td>
+                                    <td><span class="token-cost">130-180 tokens</span></td>
+                                    <td>Rare cavern enemy</td>
+                                </tr>
+                                <tr>
+                                    <td><code>chaoselemental</code></td>
+                                    <td>Chaos Elemental</td>
+                                    <td><span class="token-cost">150-200 tokens</span></td>
+                                    <td>Post-mechanical boss</td>
+                                </tr>
+                                <tr>
+                                    <td><code>mourningwood</code></td>
+                                    <td>Mourning Wood</td>
+                                    <td><span class="token-cost">180-250 tokens</span></td>
+                                    <td>Pumpkin Moon enemy</td>
+                                </tr>
+                                <tr>
+                                    <td><code>reaper</code></td>
+                                    <td>Reaper</td>
+                                    <td><span class="token-cost">180-250 tokens</span></td>
+                                    <td>Eclipse enemy</td>
+                                </tr>
+                                <tr>
+                                    <td><code>lihzahrd</code></td>
+                                    <td>Lihzahrd</td>
+                                    <td><span class="token-cost">180-250 tokens</span></td>
+                                    <td>Temple enemy</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="spawn-notes">
+                    <h4><i class="fas fa-info-circle"></i> Important Notes</h4>
+                    <ul>
+                        <li><strong>Progression-Based:</strong> Mobs unlock as you defeat bosses and progress through the game</li>
+                        <li><strong>Smart Positioning:</strong> Spawned mobs appear around the player using intelligent positioning to avoid blocks</li>
+                        <li><strong>Group Spawning:</strong> Some cheaper mobs spawn in groups for better value</li>
+                        <li><strong>Special Effects:</strong> Visual and audio effects play when mobs are successfully spawned</li>
+                        <li><strong>Game Master Privileges:</strong> Streamers and moderators can spawn any mob for free</li>
+                        <li><strong>Auto-Despawn:</strong> Spike Balls automatically despawn after 60 seconds (unkillable)</li>
+                        <li><strong>Complete List:</strong> Over 100+ different spawnable creatures available</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -567,8 +1344,7 @@
                             <ul>
                                 <li>Open the in-game chat</li>
                                 <li>Type <code>/twitch auth</code></li>
-                                <li>Follow the OAuth authorization flow</li>
-                                <li>Your tokens will be securely encrypted and stored</li>
+                                <li>Follow the Twitch authorization flow</li>
                             </ul>
                         </div>
                     </div>
@@ -604,18 +1380,6 @@
                 <div class="tech-item">
                     <strong>Platform:</strong>
                     <span>Terraria tModLoader</span>
-                </div>
-                <div class="tech-item">
-                    <strong>Language:</strong>
-                    <span>C#</span>
-                </div>
-                <div class="tech-item">
-                    <strong>Dependencies:</strong>
-                    <span>TwitchLib.Client (3.5.3)</span>
-                </div>
-                <div class="tech-item">
-                    <strong>File Size:</strong>
-                    <span>Lightweight mod</span>
                 </div>
                 <div class="tech-item">
                     <strong>Compatibility:</strong>
