@@ -321,6 +321,45 @@
                                         @viewer Current weather: Raining, Snow biome
                                     </div>
                                 </div>
+                                <div class="command-card" data-command="progression">
+                                    <div class="card-header">
+                                        <code>!progression</code>
+                                        <span class="card-badge viewer">Viewer</span>
+                                    </div>
+                                    <div class="card-description">
+                                        Reports the current world progression tier (e.g., Hardmode, Post-Eye, etc.)
+                                    </div>
+                                    <div class="card-example">
+                                        <i class="fas fa-quote-left"></i>
+                                        @username Current progression: Hardmode
+                                    </div>
+                                </div>
+                                <div class="command-card" data-command="spawnlist">
+                                    <div class="card-header">
+                                        <code>!spawnlist</code>
+                                        <span class="card-badge viewer">Viewer</span>
+                                    </div>
+                                    <div class="card-description">
+                                        Shows all possible mobs you can currently spawn, organized by tier and filtered by your progression
+                                    </div>
+                                    <div class="card-example">
+                                        <i class="fas fa-quote-left"></i>
+                                        !spawnlist
+                                    </div>
+                                </div>
+                                <div class="command-card" data-command="spawn-tier">
+                                    <div class="card-header">
+                                        <code>!spawn &lt;tier&gt;</code>
+                                        <span class="card-badge viewer">Viewer</span>
+                                    </div>
+                                    <div class="card-description">
+                                        Spawns a random mob from the specified tier (harmless, common, rare, deadly), filtered by world progression
+                                    </div>
+                                    <div class="card-example">
+                                        <i class="fas fa-quote-left"></i>
+                                        !spawn harmless
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -989,321 +1028,69 @@
                 <div class="spawn-overview">
                     <div class="spawn-info-cards">
                         <div class="spawn-info-card">
-                            <i class="fas fa-terminal"></i>
-                            <h4>Basic Commands</h4>
-                            <p><code>!spawn &lt;mobname&gt;</code> - Spawn specific mob</p>
-                            <p><code>!spawn random</code> - Random spawn (30-50 tokens)</p>
-                            <p><code>!spawnlist</code> - View available mobs</p>
-                        </div>
-                        <div class="spawn-info-card">
-                            <i class="fas fa-chart-line"></i>
-                            <h4>Progression System</h4>
-                            <p>Mobs unlock as you defeat bosses</p>
-                            <p>Higher tier enemies cost more tokens</p>
-                            <p>Game Masters can spawn anything for free</p>
+                            <i class="fas fa-layer-group"></i>
+                            <h4>Mob Tiers</h4>
+                            <p><strong>Harmless:</strong> Peaceful critters and non-hostile mobs<br>
+                              <span class="spawn-tier-examples">Examples: Bunny, goldfish, bird, squirrel, penguin, frog, duck, firefly, butterfly, snail, corrupt goldfish</span>
+                            </p>
+                            <p><strong>Common:</strong> Basic slimes and weak enemies<br>
+                              <span class="spawn-tier-examples">Examples: Slimes (blue, green, purple, yellow, red, jungle, ice), zombie, demon eye, cave bat, eater of souls, crab, piranha, corrupt bunny</span>
+                            </p>
+                            <p><strong>Rare:</strong> Stronger pre-hardmode enemies, uncommon hardmode enemies, and more<br>
+                              <span class="spawn-tier-examples">Examples: Skeletons, hornets, jungle/dungeon/goblin enemies, unicorn, pixie, hardmode enemies, etc.</span>
+                            </p>
+                            <p><strong>Deadly:</strong> The most dangerous non-boss enemies, mini-bosses, and rare hardmode threats<br>
+                              <span class="spawn-tier-examples">Examples: Wraith, gastropod, possessed armor, corruptor, clinger, werewolf, mimic, spiked ice slime, deadly jungle/ocean/cavern enemies, etc.</span>
+                            </p>
+                            <p class="spawn-tier-note"><em>Bosses are not included in these tiers and are spawned via a separate command.</em></p>
                         </div>
                         <div class="spawn-info-card">
                             <i class="fas fa-coins"></i>
-                            <h4>Token Costs</h4>
-                            <p>Critters: 5-15 tokens</p>
-                            <p>Basic enemies: 20-50 tokens</p>
-                            <p>Elite enemies: 130-250 tokens</p>
+                            <h4>Token Cost Table</h4>
+                            <div class="table-responsive">
+                              <table class="commands-table">
+                                <thead>
+                                  <tr>
+                                    <th>Config Tier</th>
+                                    <th>Mob Category</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td>HarmlessMobSpawnPrice</td>
+                                    <td>Peaceful critters, non-hostile mobs</td>
+                                  </tr>
+                                  <tr>
+                                    <td>CommonMobSpawnPrice</td>
+                                    <td>Basic slimes, weak enemies</td>
+                                  </tr>
+                                  <tr>
+                                    <td>RareMobSpawnPrice</td>
+                                    <td>Stronger pre-hardmode, uncommon hardmode</td>
+                                  </tr>
+                                  <tr>
+                                    <td>DeadlyMobSpawnPrice</td>
+                                    <td>Deadliest non-bosses, mini-bosses, rare mobs</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                            <p class="spawn-tier-note"><em>See your mod config for the exact values.</em></p>
                         </div>
-                    </div>
-                </div>
-
-                <div class="redemption-category">
-                    <h4>Early Game Mobs (Always Available)</h4>
-                    <div class="table-responsive">
-                        <table class="commands-table">
-                            <thead>
-                                <tr>
-                                    <th>Command</th>
-                                    <th>Display Name</th>
-                                    <th>Cost</th>
-                                    <th>Notes</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><code>bunny</code></td>
-                                    <td>Bunny</td>
-                                    <td><span class="token-cost">5-15 tokens</span></td>
-                                    <td>Peaceful critter</td>
-                                </tr>
-                                <tr>
-                                    <td><code>goldfish</code></td>
-                                    <td>Goldfish</td>
-                                    <td><span class="token-cost">5-15 tokens</span></td>
-                                    <td>Peaceful critter</td>
-                                </tr>
-                                <tr>
-                                    <td><code>bird</code></td>
-                                    <td>Bird</td>
-                                    <td><span class="token-cost">5-15 tokens</span></td>
-                                    <td>Peaceful critter</td>
-                                </tr>
-                                <tr>
-                                    <td><code>slime</code></td>
-                                    <td>Blue Slime</td>
-                                    <td><span class="token-cost">10-25 tokens</span></td>
-                                    <td>Basic enemy</td>
-                                </tr>
-                                <tr>
-                                    <td><code>greenslime</code></td>
-                                    <td>Green Slime</td>
-                                    <td><span class="token-cost">10-25 tokens</span></td>
-                                    <td>Basic enemy</td>
-                                </tr>
-                                <tr>
-                                    <td><code>zombie</code></td>
-                                    <td>Zombie</td>
-                                    <td><span class="token-cost">20-35 tokens</span></td>
-                                    <td>Basic enemy</td>
-                                </tr>
-                                <tr>
-                                    <td><code>demoneye</code></td>
-                                    <td>Demon Eye</td>
-                                    <td><span class="token-cost">20-35 tokens</span></td>
-                                    <td>Flying enemy</td>
-                                </tr>
-                                <tr>
-                                    <td><code>cavebat</code></td>
-                                    <td>Cave Bat</td>
-                                    <td><span class="token-cost">20-35 tokens</span></td>
-                                    <td>Flying enemy</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                <div class="redemption-category">
-                    <h4>Post-Eye of Cthulhu (30-65 tokens)</h4>
-                    <div class="table-responsive">
-                        <table class="commands-table">
-                            <thead>
-                                <tr>
-                                    <th>Command</th>
-                                    <th>Display Name</th>
-                                    <th>Cost</th>
-                                    <th>Notes</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><code>skeleton</code></td>
-                                    <td>Skeleton</td>
-                                    <td><span class="token-cost">30-50 tokens</span></td>
-                                    <td>Underground enemy</td>
-                                </tr>
-                                <tr>
-                                    <td><code>skeletonarcher</code></td>
-                                    <td>Skeleton Archer</td>
-                                    <td><span class="token-cost">30-50 tokens</span></td>
-                                    <td>Ranged skeleton</td>
-                                </tr>
-                                <tr>
-                                    <td><code>harpy</code></td>
-                                    <td>Harpy</td>
-                                    <td><span class="token-cost">40-65 tokens</span></td>
-                                    <td>Sky enemy</td>
-                                </tr>
-                                <tr>
-                                    <td><code>tim</code></td>
-                                    <td>Tim</td>
-                                    <td><span class="token-cost">40-65 tokens</span></td>
-                                    <td>Rare mage enemy</td>
-                                </tr>
-                                <tr>
-                                    <td><code>demon</code></td>
-                                    <td>Demon</td>
-                                    <td><span class="token-cost">40-65 tokens</span></td>
-                                    <td>Underworld enemy</td>
-                                </tr>
-                                <tr>
-                                    <td><code>fireimp</code></td>
-                                    <td>Fire Imp</td>
-                                    <td><span class="token-cost">40-65 tokens</span></td>
-                                    <td>Underworld enemy</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                <div class="redemption-category">
-                    <h4>Post-Skeletron - Dungeon Enemies (60-85 tokens)</h4>
-                    <div class="table-responsive">
-                        <table class="commands-table">
-                            <thead>
-                                <tr>
-                                    <th>Command</th>
-                                    <th>Display Name</th>
-                                    <th>Cost</th>
-                                    <th>Notes</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><code>cursedskull</code></td>
-                                    <td>Cursed Skull</td>
-                                    <td><span class="token-cost">60-85 tokens</span></td>
-                                    <td>Dungeon enemy</td>
-                                </tr>
-                                <tr>
-                                    <td><code>darkcaster</code></td>
-                                    <td>Dark Caster</td>
-                                    <td><span class="token-cost">60-85 tokens</span></td>
-                                    <td>Dungeon mage</td>
-                                </tr>
-                                <tr>
-                                    <td><code>armedskeleton</code></td>
-                                    <td>Armored Skeleton</td>
-                                    <td><span class="token-cost">60-85 tokens</span></td>
-                                    <td>Dungeon enemy</td>
-                                </tr>
-                                <tr>
-                                    <td><code>spikedball</code></td>
-                                    <td>Spike Ball</td>
-                                    <td><span class="token-cost">60-85 tokens</span></td>
-                                    <td><strong>60s duration limit</strong></td>
-                                </tr>
-                                <tr>
-                                    <td><code>cursedhammer</code></td>
-                                    <td>Cursed Hammer</td>
-                                    <td><span class="token-cost">60-85 tokens</span></td>
-                                    <td>Dungeon enemy</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                <div class="redemption-category">
-                    <h4>Hardmode Enemies (70-150 tokens)</h4>
-                    <div class="table-responsive">
-                        <table class="commands-table">
-                            <thead>
-                                <tr>
-                                    <th>Command</th>
-                                    <th>Display Name</th>
-                                    <th>Cost</th>
-                                    <th>Notes</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><code>unicorn</code></td>
-                                    <td>Unicorn</td>
-                                    <td><span class="token-cost">60-80 tokens</span></td>
-                                    <td>Peaceful hardmode creature</td>
-                                </tr>
-                                <tr>
-                                    <td><code>pixie</code></td>
-                                    <td>Pixie</td>
-                                    <td><span class="token-cost">60-80 tokens</span></td>
-                                    <td>Peaceful hardmode creature</td>
-                                </tr>
-                                <tr>
-                                    <td><code>wraith</code></td>
-                                    <td>Wraith</td>
-                                    <td><span class="token-cost">90-130 tokens</span></td>
-                                    <td>Dangerous enemy</td>
-                                </tr>
-                                <tr>
-                                    <td><code>mimic</code></td>
-                                    <td>Mimic</td>
-                                    <td><span class="token-cost">90-130 tokens</span></td>
-                                    <td>Chest mimic</td>
-                                </tr>
-                                <tr>
-                                    <td><code>clown</code></td>
-                                    <td>Clown</td>
-                                    <td><span class="token-cost">110-150 tokens</span></td>
-                                    <td>Blood Moon enemy</td>
-                                </tr>
-                                <tr>
-                                    <td><code>vampire</code></td>
-                                    <td>Vampire</td>
-                                    <td><span class="token-cost">110-150 tokens</span></td>
-                                    <td>Night enemy</td>
-                                </tr>
-                                <tr>
-                                    <td><code>reddevil</code></td>
-                                    <td>Red Devil</td>
-                                    <td><span class="token-cost">110-150 tokens</span></td>
-                                    <td>Underworld enemy</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                <div class="redemption-category">
-                    <h4>Elite & Post-Plantera (130-250 tokens)</h4>
-                    <div class="table-responsive">
-                        <table class="commands-table">
-                            <thead>
-                                <tr>
-                                    <th>Command</th>
-                                    <th>Display Name</th>
-                                    <th>Cost</th>
-                                    <th>Notes</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><code>icegolem</code></td>
-                                    <td>Ice Golem</td>
-                                    <td><span class="token-cost">130-180 tokens</span></td>
-                                    <td>Snow mini-boss</td>
-                                </tr>
-                                <tr>
-                                    <td><code>nymph</code></td>
-                                    <td>Nymph</td>
-                                    <td><span class="token-cost">130-180 tokens</span></td>
-                                    <td>Rare cavern enemy</td>
-                                </tr>
-                                <tr>
-                                    <td><code>chaoselemental</code></td>
-                                    <td>Chaos Elemental</td>
-                                    <td><span class="token-cost">150-200 tokens</span></td>
-                                    <td>Post-mechanical boss</td>
-                                </tr>
-                                <tr>
-                                    <td><code>mourningwood</code></td>
-                                    <td>Mourning Wood</td>
-                                    <td><span class="token-cost">180-250 tokens</span></td>
-                                    <td>Pumpkin Moon enemy</td>
-                                </tr>
-                                <tr>
-                                    <td><code>reaper</code></td>
-                                    <td>Reaper</td>
-                                    <td><span class="token-cost">180-250 tokens</span></td>
-                                    <td>Eclipse enemy</td>
-                                </tr>
-                                <tr>
-                                    <td><code>lihzahrd</code></td>
-                                    <td>Lihzahrd</td>
-                                    <td><span class="token-cost">180-250 tokens</span></td>
-                                    <td>Temple enemy</td>
-                                </tr>
-                            </tbody>
-                        </table>
                     </div>
                 </div>
 
                 <div class="spawn-notes">
                     <h4><i class="fas fa-info-circle"></i> Important Notes</h4>
                     <ul>
-                        <li><strong>Progression-Based:</strong> Mobs unlock as you defeat bosses and progress through the game</li>
-                        <li><strong>Smart Positioning:</strong> Spawned mobs appear around the player using intelligent positioning to avoid blocks</li>
-                        <li><strong>Group Spawning:</strong> Some cheaper mobs spawn in groups for better value</li>
-                        <li><strong>Special Effects:</strong> Visual and audio effects play when mobs are successfully spawned</li>
-                        <li><strong>Game Master Privileges:</strong> Streamers and moderators can spawn any mob for free</li>
-                        <li><strong>Auto-Despawn:</strong> Spike Balls automatically despawn after 60 seconds (unkillable)</li>
-                        <li><strong>Complete List:</strong> Over 100+ different spawnable creatures available</li>
+                        <li><strong>Tiered Spawning:</strong> Use <code>!spawn &lt;tier&gt;</code> to spawn a random mob from a tier filtered by your progression. Tiers: harmless, common, rare, deadly.</li>
+                        <li><strong>Progression-Based:</strong> Mobs unlock as you defeat bosses and progress through the game. Progression stages: Early Game, Post-Eye, Post-Brain/Eater, Post-Skeletron, Hardmode, Post-Mechanical, Post-Plantera.</li>
+                        <li><strong>Smart Positioning:</strong> The system tries up to 40 times to find a valid spawn location near a player, using smart logic to avoid blocks and ensure mobs appear in accessible areas. If no perfect spot is found, it will use the best fallback, and as a last resort, spawn above the player with a warning.</li>
+                        <li><strong>Progression Gating:</strong> Only mobs appropriate for your world state can be spawned (unless you are a Game Master).</li>
+                        <li><strong>Token Costs & Mob Lists:</strong> Both are configurable in the mod settings. If no mobs are available for a tier, the bot will notify you.</li>
+                        <li><strong>Game Master Privileges:</strong> Streamers and moderators can spawn any mob for free.</li>
+                        <li><strong>Auto-Despawn:</strong> Spike Balls automatically despawn after 60 seconds (unkillable).</li>
+                        <li><strong>Complete List:</strong> Over 100+ different spawnable creatures available.</li>
                     </ul>
                 </div>
             </div>
