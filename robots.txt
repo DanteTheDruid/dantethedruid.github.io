@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://dantethedruid.github.io/TwitchIntegrationPlusWebsite/sitemap.xml
+
+# Specific pages that are important for indexing
+Allow: /index.html
+Allow: /#features
+Allow: /#commands
+Allow: /#setup
+Allow: /#security
+
+# Block any potential temporary or development files
+Disallow: /.*
+Disallow: /*.md$
+Disallow: /prompt.md
