@@ -1030,50 +1030,85 @@
                         <div class="spawn-info-card">
                             <i class="fas fa-layer-group"></i>
                             <h4>Mob Tiers</h4>
-                            <p><strong>Harmless:</strong> Peaceful critters and non-hostile mobs<br>
-                              <span class="spawn-tier-examples">Examples: Bunny, goldfish, bird, squirrel, penguin, frog, duck, firefly, butterfly, snail, corrupt goldfish</span>
-                            </p>
-                            <p><strong>Common:</strong> Basic slimes and weak enemies<br>
-                              <span class="spawn-tier-examples">Examples: Slimes (blue, green, purple, yellow, red, jungle, ice), zombie, demon eye, cave bat, eater of souls, crab, piranha, corrupt bunny</span>
-                            </p>
-                            <p><strong>Rare:</strong> Stronger pre-hardmode enemies, uncommon hardmode enemies, and more<br>
-                              <span class="spawn-tier-examples">Examples: Skeletons, hornets, jungle/dungeon/goblin enemies, unicorn, pixie, hardmode enemies, etc.</span>
-                            </p>
-                            <p><strong>Deadly:</strong> The most dangerous non-boss enemies, mini-bosses, and rare hardmode threats<br>
-                              <span class="spawn-tier-examples">Examples: Wraith, gastropod, possessed armor, corruptor, clinger, werewolf, mimic, spiked ice slime, deadly jungle/ocean/cavern enemies, etc.</span>
-                            </p>
+                            <div class="admin-dropdown-container">
+                                <div class="admin-dropdown">
+                                    <div class="dropdown-header" onclick="toggleDropdown('harmless-tier')">
+                                        <div class="dropdown-title"><strong>Harmless Tier</strong></div>
+                                        <i class="fas fa-chevron-down dropdown-arrow"></i>
+                                    </div>
+                                    <div class="dropdown-content" id="harmless-tier">
+                                        <p>Peaceful critters and non-hostile mobs.</p>
+                                        <p class="spawn-tier-examples">Examples: Bunny, goldfish, bird, squirrel, penguin, frog, duck, firefly, butterfly, snail, corrupt goldfish</p>
+                                    </div>
+                                </div>
+                                <div class="admin-dropdown">
+                                    <div class="dropdown-header" onclick="toggleDropdown('common-tier')">
+                                        <div class="dropdown-title"><strong>Common Tier</strong></div>
+                                        <i class="fas fa-chevron-down dropdown-arrow"></i>
+                                    </div>
+                                    <div class="dropdown-content" id="common-tier">
+                                        <p>Basic slimes and weak enemies.</p>
+                                        <p class="spawn-tier-examples">Examples: Slimes (blue, green, purple, yellow, red, jungle, ice), zombie, demon eye, cave bat, eater of souls, crab, piranha, corrupt bunny</p>
+                                    </div>
+                                </div>
+                                <div class="admin-dropdown">
+                                    <div class="dropdown-header" onclick="toggleDropdown('rare-tier')">
+                                        <div class="dropdown-title"><strong>Rare Tier</strong></div>
+                                        <i class="fas fa-chevron-down dropdown-arrow"></i>
+                                    </div>
+                                    <div class="dropdown-content" id="rare-tier">
+                                        <p>Stronger pre-hardmode enemies, uncommon hardmode enemies, and more.</p>
+                                        <p class="spawn-tier-examples">Examples: Skeletons, hornets, jungle/dungeon/goblin enemies, unicorn, pixie, hardmode enemies, etc.</p>
+                                    </div>
+                                </div>
+                                <div class="admin-dropdown">
+                                    <div class="dropdown-header" onclick="toggleDropdown('deadly-tier')">
+                                        <div class="dropdown-title"><strong>Deadly Tier</strong></div>
+                                        <i class="fas fa-chevron-down dropdown-arrow"></i>
+                                    </div>
+                                    <div class="dropdown-content" id="deadly-tier">
+                                        <p>The most dangerous non-boss enemies, mini-bosses, and rare hardmode threats.</p>
+                                        <p class="spawn-tier-examples">Examples: Wraith, gastropod, possessed armor, corruptor, clinger, werewolf, mimic, spiked ice slime, deadly jungle/ocean/cavern enemies, etc.</p>
+                                    </div>
+                                </div>
+                            </div>
                             <p class="spawn-tier-note"><em>Bosses are not included in these tiers and are spawned via a separate command.</em></p>
                         </div>
                         <div class="spawn-info-card">
                             <i class="fas fa-coins"></i>
                             <h4>Token Cost Table</h4>
                             <div class="table-responsive">
-                              <table class="commands-table">
-                                <thead>
-                                  <tr>
-                                    <th>Config Tier</th>
-                                    <th>Mob Category</th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  <tr>
-                                    <td>HarmlessMobSpawnPrice</td>
-                                    <td>Peaceful critters, non-hostile mobs</td>
-                                  </tr>
-                                  <tr>
-                                    <td>CommonMobSpawnPrice</td>
-                                    <td>Basic slimes, weak enemies</td>
-                                  </tr>
-                                  <tr>
-                                    <td>RareMobSpawnPrice</td>
-                                    <td>Stronger pre-hardmode, uncommon hardmode</td>
-                                  </tr>
-                                  <tr>
-                                    <td>DeadlyMobSpawnPrice</td>
-                                    <td>Deadliest non-bosses, mini-bosses, rare mobs</td>
-                                  </tr>
-                                </tbody>
-                              </table>
+                                <table class="commands-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Config Tier</th>
+                                            <th>Mob Category</th>
+                                            <th>Default Cost</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>HarmlessMobSpawnPrice</td>
+                                            <td>Peaceful critters, non-hostile mobs</td>
+                                            <td>10</td>
+                                        </tr>
+                                        <tr>
+                                            <td>CommonMobSpawnPrice</td>
+                                            <td>Basic slimes, weak enemies</td>
+                                            <td>20</td>
+                                        </tr>
+                                        <tr>
+                                            <td>RareMobSpawnPrice</td>
+                                            <td>Stronger pre-hardmode, uncommon hardmode</td>
+                                            <td>100</td>
+                                        </tr>
+                                        <tr>
+                                            <td>DeadlyMobSpawnPrice</td>
+                                            <td>Deadliest non-bosses, mini-bosses, rare mobs</td>
+                                            <td>250</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                             <p class="spawn-tier-note"><em>See your mod config for the exact values.</em></p>
                         </div>
